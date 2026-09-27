@@ -186,7 +186,7 @@ Slang's multi-target compilation system allows you to write shaders that can be 
 
 == SPIR-V intrinsics
 
-DXC supports link:https://github.com/microsoft/DirectXShaderCompiler/wiki/GL_EXT_spirv_intrinsics-for-SPIR-V-code-gen[SPIR-V intrinsics] with the `GL_EXT_spirv_intrinsics` extension. This adds support for embedding arbitrary SPIR-V in the middle of GLSL for features not available in DirectX. For this new keywords are added to the `vk` namespace that map SPIR-V opcodes, incl. `vk::ext_extension`, `vk::ext_capability`, `vk::ext_builtin_input`, `vk::ext_execution_mode` and `vk::ext_instruction`.
+DXC supports link:https://github.com/microsoft/DirectXShaderCompiler/wiki/GL_EXT_spirv_intrinsics-for-SPIR-V-code-gen[SPIR-V intrinsics] with the `GL_EXT_spirv_intrinsics` extension. This adds support for embedding arbitrary SPIR-V in the middle of HLSL for features not available in DirectX. For this new keywords are added to the `vk` namespace that map SPIR-V opcodes, incl. `vk::ext_extension`, `vk::ext_capability`, `vk::ext_builtin_input`, `vk::ext_execution_mode` and `vk::ext_instruction`.
 
 Example for using the stencil export SPIR-V extension in HLSL:
 
@@ -313,7 +313,7 @@ layout (location = 0) in vec4 inPos;
 
 void main() {
     // The vertex output position is written to the gl_Position built-in
-    gl_Position = ubo.projectionMatrix * ubo.viewMatrix * ubo.modelMatrix * inPos.xyz;
+    gl_Position = ubo.projectionMatrix * ubo.viewMatrix * ubo.modelMatrix * inPos;
 }
 ----
 
@@ -395,7 +395,7 @@ HLSL:
 struct VSInput
 {
     // The SV_VertexID semantic declares the VertexIndex member as the vertex index input
-    uint VertexIndex : SV_VertexID
+    uint VertexIndex : SV_VertexID;
 };
 
 VSOutput main(VSInput input)
@@ -412,7 +412,7 @@ Slang:
 struct VSInput
 {
     // Same as HLSL, using SV_VertexID semantic
-    uint VertexIndex : SV_VertexID
+    uint VertexIndex : SV_VertexID;
 };
 
 VSOutput main(VSInput input)
@@ -719,7 +719,7 @@ struct VSOutput
 [[vk::location(1)]] float3 Color : COLOR;
 [[vk::location(2)]] float2 UV : TEXCOORD0;
 [[vk::location(3)]] float3 ViewVec : TEXCOORD1;
-}
+};
 
 VSOutput main(VSInput input) {
     VSOutput output = (VSOutput)0;
@@ -1104,9 +1104,9 @@ ConstantBuffer<SBT> sbt;
 | gl_RayFlagsCullBackFacingTrianglesEXT | RAY_FLAG_CULL_BACK_FACING_TRIANGLES |
 | gl_RayFlagsCullFrontFacingTrianglesEXT | RAY_FLAG_CULL_FRONT_FACING_TRIANGLES |
 | gl_RayFlagsCullOpaqueEXT | RAY_FLAG_CULL_OPAQUE |
-| gl_RayFlagsCullNoOpaqueEXT | RAY_FLAG_CULL_NON_OPAQUE | requires `GL_EXT_ray_flags_primitive_culling`
+| gl_RayFlagsCullNoOpaqueEXT | RAY_FLAG_CULL_NON_OPAQUE |
 | gl_RayFlagsSkipTrianglesEXT | RAY_FLAG_SKIP_TRIANGLES | requires `GL_EXT_ray_flags_primitive_culling`
-| gl_RayFlagsSkipAABBEXT  | RAY_FLAG_SKIP_PROCEDURAL_PRIMITIVES |
+| gl_RayFlagsSkipAABBEXT  | RAY_FLAG_SKIP_PROCEDURAL_PRIMITIVES | requires `GL_EXT_ray_flags_primitive_culling`
 | gl_HitKindFrontFacingTriangleEXT | HIT_KIND_TRIANGLE_FRONT_FACE |
 | gl_HitKindBackFacingTriangleEXT | HIT_KIND_TRIANGLE_BACK_FACE |
 | gl_HitTriangleVertexPositionsEXT a| Requires <<SPIR-V intrinsics>>:
@@ -1355,14 +1355,14 @@ These shader stages share several functions and built-ins
 [options="header"]
 |====
 | *GLSL* | *HLSL*
-| gl_HelperInvocation | WaveIsHelperLane
+| gl_HelperInvocation | IsHelperLane
 | n.a. | WaveOnce
-| readFirstInvocationARB | WaveReadFirstLane
+| readFirstInvocationARB | WaveReadLaneFirst
 | readInvocationARB | WaveReadLaneAt
-| anyInvocationARB | WaveAnyTrue
-| allInvocationsARB | WaveAllTrue
-| allInvocationsEqualARB | WaveAllEqual
-| ballotARB | WaveBallot
+| anyInvocationARB | WaveActiveAnyTrue
+| allInvocationsARB | WaveActiveAllTrue
+| allInvocationsEqualARB | WaveActiveAllEqual
+| ballotARB | WaveActiveBallot
 | gl_NumSubgroups | NumSubgroups decorated OpVariable
 | gl_SubgroupID | SubgroupId decorated OpVariable
 | gl_SubgroupSize | WaveGetLaneCount
@@ -1378,7 +1378,7 @@ These shader stages share several functions and built-ins
 | subgroupBallot | WaveActiveBallot
 | subgroupAllEqual | WaveActiveAllEqual
 | subgroupBallotBitCount | WaveActiveCountBits
-| subgroupAnd | WaveActiveBitAdd
+| subgroupAnd | WaveActiveBitAnd
 | subgroupOr | WaveActiveBitOr
 | subgroupXor | WaveActiveBitXor
 | subgroupAdd | WaveActiveSum
@@ -1520,7 +1520,7 @@ The module system offers several advantages:
 
 [NOTE]
 ====
-Most GLSL functions are also available in HLSL and vice-versa. This chapter lists functions with divergent names. Functions that have a 1:1 counterpart (e.g. `isNan`) aren't listed.
+Most GLSL functions are also available in HLSL and vice-versa. This chapter lists functions with divergent names. Functions that have a 1:1 counterpart (e.g. `isnan`) aren't listed.
 ====
 
 [options="header"]

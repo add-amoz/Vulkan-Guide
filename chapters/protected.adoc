@@ -124,15 +124,15 @@ VkSubmitInfo submitInfo                  = {};
 submitInfo.pNext                         = &protectedSubmitInfo;
 submitInfo.pCommandBuffers               = protectedCommandBuffers;
 
-vkQueueSubmit(protectedQueue, 1, &submitInfo, fence));
+vkQueueSubmit(protectedQueue, 1, &submitInfo, fence);
 ----
 
 or using xref:{chapters}extensions/VK_KHR_synchronization2.adoc#VK_KHR_synchronization2[VK_KHR_synchronization2]
 
 [source,cpp]
 ----
-VkSubmitInfo2KHR submitInfo = {}
+VkSubmitInfo2KHR submitInfo = {};
 submitInfo.flags = VK_SUBMIT_PROTECTED_BIT_KHR;
 
-vkQueueSubmit2KHR(protectedQueue, 1, submitInfo, fence);
+vkQueueSubmit2KHR(protectedQueue, 1, &submitInfo, fence);
 ----

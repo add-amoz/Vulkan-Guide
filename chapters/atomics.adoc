@@ -70,7 +70,7 @@ The two feature bits, `shaderBufferInt64Atomics` and `shaderSharedInt64Atomics`,
   * `shaderBufferInt64Atomics` - buffers
   * `shaderSharedInt64Atomics` - shared memory
 
-The `shaderBufferInt64Atomics` is always guaranteed to be supported if using Vulkan 1.2+ or the extension is exposed.
+The `shaderBufferInt64Atomics` is always guaranteed to be supported if the extension is exposed.
 
 [[VK_EXT_shader_image_atomic_int64]]
 == VK_EXT_shader_image_atomic_int64
@@ -104,7 +104,7 @@ The extension lists many feature bits. One way to group them is by `*Float*Atomi
 
   * The `*Float*Atomics` features allow for the use of `OpAtomicStore`, `OpAtomicLoad`, and `OpAtomicExchange` for `float` types.
   ** Note the `OpAtomicCompareExchange` "`exchange`" operation is not included as the SPIR-V spec only allows `int` types for it.
-  * The `*Float*AtomicAdd` features allow the use of the two extended SPIR-V operations `AtomicFloat32AddEXT` and `AtomicFloat64AddEXT`.
+  * The `*Float*AtomicAdd` features allow the use of `OpAtomicFAddEXT` with the two extended SPIR-V capabilities `AtomicFloat32AddEXT` and `AtomicFloat64AddEXT`.
 
 From here the rest of the permutations of features fall into the grouping of `32-bit float` support:
 

@@ -136,7 +136,7 @@ image::{images}depth_coordinates_flow.png[depth_coordinates_flow]
 [[primitive-clipping]]
 === Primitive Clipping
 
-Clipping always occurs, unless using the `depthClipEnable` from xref:{chapters}extensions/translation_layer_extensions.adoc#vk_ext_depth_clip_enable[VK_EXT_depth_clip_enable], if the primitive is outside the `view volume`. In Vulkan, this is expressed for depth as
+Clipping always occurs, unless using the `depthClipEnable` from xref:{chapters}extensions/translation_layer_extensions.adoc#VK_EXT_depth_clip_enable[VK_EXT_depth_clip_enable], if the primitive is outside the `view volume`. In Vulkan, this is expressed for depth as
 
 [source]
 ----
@@ -291,7 +291,7 @@ Each fragment has a link:https://docs.vulkan.org/spec/latest/chapters/primsrast.
 [[resolving-depth-buffer]]
 ==== Resolving depth buffer
 
-It is possible in Vulkan using the xref:{chapters}extensions/cleanup.adoc#vk_khr_depth_stencil_resolve[VK_KHR_depth_stencil_resolve] extension (promoted to Vulkan core in 1.2) to resolve multisampled depth/stencil attachments in a subpass in a similar manner as for color attachments.
+It is possible in Vulkan using the xref:{chapters}extensions/cleanup.adoc#VK_KHR_depth_stencil_resolve[VK_KHR_depth_stencil_resolve] extension (promoted to Vulkan core in 1.2) to resolve multisampled depth/stencil attachments in a subpass in a similar manner as for color attachments.
 
 [[depth-bounds]]
 === Depth Bounds

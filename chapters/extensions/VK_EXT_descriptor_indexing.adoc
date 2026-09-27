@@ -87,7 +87,7 @@ An example of dynamic non-uniform indexing in GLSL
 
 [source,glsl]
 ----
-#version450
+#version 450
 #extension GL_EXT_nonuniform_qualifier : enable
 
 layout(set = 0, binding = 0) uniform sampler2D mySampler[64];

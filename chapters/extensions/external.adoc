@@ -57,15 +57,15 @@ import_info.handleType = VK_EXTERNAL_MEMORY_HANDLE_TYPE_OPAQUE_FD_BIT;
 import_info.fd = fd;
 
 VkMemoryAllocateInfo allocate_info;
-allocate_info.pNext = &import_info
+allocate_info.pNext = &import_info;
 
 VkDeviceMemory device_memory;
-vkAllocateMemory(device, &allocate_info, nullptr, device_memory);
+vkAllocateMemory(device, &allocate_info, nullptr, &device_memory);
 ----
 
 === Exporting Memory
 
-To export memory, there is a `VkGetMemory*` function provided by the given external memory extension. This function will take in a `VkDeviceMemory` handle and then map that to the extension exposed object.
+To export memory, there is a `vkGetMemory*` function provided by the given external memory extension. This function will take in a `VkDeviceMemory` handle and then map that to the extension exposed object.
 
 [source,cpp]
 ----
@@ -73,10 +73,10 @@ VkExportMemoryAllocateInfo export_info;
 export_info.handleTypes = VK_EXTERNAL_MEMORY_HANDLE_TYPE_OPAQUE_FD_BIT;
 
 VkMemoryAllocateInfo allocate_info;
-allocate_info.pNext = &export_info
+allocate_info.pNext = &export_info;
 
 VkDeviceMemory device_memory;
-vkAllocateMemory(device, &allocate_info, nullptr, device_memory);
+vkAllocateMemory(device, &allocate_info, nullptr, &device_memory);
 
 VkMemoryGetFdInfoKHR get_handle_info;
 get_handle_info.memory = device_memory;
@@ -101,7 +101,7 @@ Each extension explains how it manages ownership of the synchronization primitiv
 
 === Importing and Exporting Synchronization Primitives
 
-There is a `VkImport*` function for importing and a `VkGet*` function for exporting. These both take the `VkFence`/`VkSemaphores` handle passed in along with the extension's method of defining the external synchronization object.
+There is a `vkImport*` function for importing and a `vkGet*` function for exporting. These both take the `VkFence`/`VkSemaphores` handle passed in along with the extension's method of defining the external synchronization object.
 
 == Example Workflow
 

@@ -7,7 +7,7 @@ ifndef::images[:images: images/]
 [[descriptor-dynamic-offset]]
 = Descriptor Dynamic Offset
 
-Vulkan offers two types of descriptors that allow adjusting the offset at bind time as link:https://docs.vulkan.org/spec/latest/chapters/descriptorsets.html#descriptorsets-binding-dynamicoffsets[defined in the spec].
+Vulkan offers two types of descriptors that allow adjusting the offset at bind time as link:https://docs.vulkan.org/spec/latest/chapters/descriptorsets.html#descriptors-binding-dynamicoffsets[defined in the spec].
 
 * dynamic uniform buffer (`VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER_DYNAMIC`)
 * dynamic storage buffer (`VK_DESCRIPTOR_TYPE_STORAGE_BUFFER_DYNAMIC`)
@@ -30,7 +30,7 @@ VkDescriptorBufferInfo bufferInfo = {
 VkWriteDescriptorSet writeInfo = {
     .dstSet = descriptorSet,
     .descriptorType = VK_DESCRIPTOR_TYPE_STORAGE_BUFFER_DYNAMIC,
-    .pBufferInfo = bufferInfo
+    .pBufferInfo = &bufferInfo
 };
 
 vkUpdateDescriptorSets(
@@ -77,7 +77,7 @@ This time the `VK_WHOLE_SIZE` value will be used for the range. Everything looks
 VkDescriptorSet descriptorSet; // allocated
 VkBuffer buffer; // size of 32 bytes
 
-VkDescriptorBufferInfo info = {
+VkDescriptorBufferInfo bufferInfo = {
     buffer,
     4,             // offset
     VK_WHOLE_SIZE  // range
@@ -86,7 +86,7 @@ VkDescriptorBufferInfo info = {
 VkWriteDescriptorSet writeInfo = {
     .dstSet = descriptorSet,
     .descriptorType = VK_DESCRIPTOR_TYPE_STORAGE_BUFFER_DYNAMIC,
-    .pBufferInfo = bufferInfo
+    .pBufferInfo = &bufferInfo
 };
 
 vkUpdateDescriptorSets(

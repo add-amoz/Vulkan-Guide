@@ -60,7 +60,7 @@ If cross-referencing `chapters/extensions/page.adoc`, mark it up as follows:
 
 [source,asciidoc]
 ----
-This is a xref:{chapters}/extensions/page.adoc#anchor[cross-reference]
+This is a xref:{chapters}extensions/page.adoc#anchor[cross-reference]
 ----
 --
   . The `anchor` is arbitrary, but is not optional. While asciidoctor will

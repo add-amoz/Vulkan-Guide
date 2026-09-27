@@ -190,7 +190,7 @@ VkImageMemoryBarrier colorImageMemoryBarrier = {
 };
 
 VkImageMemoryBarrier depthStencilImageMemoryBarrier = {
-  .srcAccessMask = VK_ACCESS_DEPTH_STENCIL_ATTACHMENT_WRITE_BIT,,
+  .srcAccessMask = VK_ACCESS_DEPTH_STENCIL_ATTACHMENT_WRITE_BIT,
   .dstAccessMask = VK_ACCESS_SHADER_READ_BIT,
   .oldLayout = VK_IMAGE_LAYOUT_DEPTH_STENCIL_ATTACHMENT_OPTIMAL,
   .newLayout = VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL
@@ -201,14 +201,14 @@ but with `VK_KHR_synchronization2` this is made simple
 
 [source,cpp]
 ----
-VkImageMemoryBarrier colorImageMemoryBarrier = {
+VkImageMemoryBarrier2KHR colorImageMemoryBarrier = {
   .srcAccessMask = VK_ACCESS_2_COLOR_ATTACHMENT_WRITE_BIT_KHR,
   .dstAccessMask = VK_ACCESS_2_SHADER_READ_BIT_KHR,
   .oldLayout = VK_IMAGE_LAYOUT_ATTACHMENT_OPTIMAL_KHR, // new layout from VK_KHR_synchronization2
   .newLayout = VK_IMAGE_LAYOUT_READ_ONLY_OPTIMAL_KHR   // new layout from VK_KHR_synchronization2
 };
 
-VkImageMemoryBarrier depthStencilImageMemoryBarrier = {
+VkImageMemoryBarrier2KHR depthStencilImageMemoryBarrier = {
   .srcAccessMask = VK_ACCESS_2_DEPTH_STENCIL_ATTACHMENT_WRITE_BIT_KHR,
   .dstAccessMask = VK_ACCESS_2_SHADER_READ_BIT_KHR,
   .oldLayout = VK_IMAGE_LAYOUT_ATTACHMENT_OPTIMAL_KHR, // new layout from VK_KHR_synchronization2
@@ -254,7 +254,7 @@ VkDeviceGroupSubmitInfo deviceGroupSubmitInfo = {
 };
 
 // Possible pNext from Vulkan 1.1
-VkProtectedSubmitInfo = protectedSubmitInfo {
+VkProtectedSubmitInfo protectedSubmitInfo = {
     // ...
     .pNext = &deviceGroupSubmitInfo
 };
@@ -298,7 +298,7 @@ VkSemaphoreSubmitInfoKHR signalSemaphoreSubmitInfo = {
 };
 
 // Need one for each VkCommandBuffer
-VkCommandBufferSubmitInfoKHR = commandBufferSubmitInfos[8] {
+VkCommandBufferSubmitInfoKHR commandBufferSubmitInfos[8] = {
     // ...
     {
         .commandBuffer = commandBuffers[i],
@@ -340,5 +340,5 @@ For devices that do not natively support this extension, there is a portable imp
 
 [NOTE]
 ====
-The `VK_KHR_synchronization2` specification lists `VK_KHR_create_renderpass2` and `VK_KHR_get_physical_device_properties2` as requirements. As a result, using synchronization2 without these extensions may result in validation errors. The extension requirements are being reevaluated and validation will be adjusted once this is complete.
+The `VK_KHR_synchronization2` specification lists `VK_KHR_get_physical_device_properties2` or Vulkan 1.1 as a requirement. `VK_KHR_create_renderpass2` is not required; it is only an interaction.
 ====

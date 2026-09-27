@@ -49,7 +49,7 @@ shader_module_ci.pCode = spirv_source;
 shader_module_ci.codeSize = sizeof(spirv_source);
 
 VkPipelineShaderStageCreateInfo pipeline_stage_ci;
-pipeline_stage_ci.pNext = &shader_module_ci
+pipeline_stage_ci.pNext = &shader_module_ci;
 pipeline_stage_ci.module = VK_NULL_HANDLE;
 ----
 
@@ -86,7 +86,7 @@ shader_module_id_ci.pIdentifier = sm_identifier.identifier;
 
 // Inline when creating the pipeline
 VkPipelineShaderStageCreateInfo pipeline_stage_ci;
-pipeline_stage_ci.pNext = &shader_module_id_ci
+pipeline_stage_ci.pNext = &shader_module_id_ci;
 pipeline_stage_ci.module = VK_NULL_HANDLE;
 ----
 

@@ -37,7 +37,7 @@ VkFramebufferCreateInfo framebuffer_info = {};
 framebuffer_info.pNext = &attachments_create_info;
 framebuffer_info.flags |= VK_FRAMEBUFFER_CREATE_IMAGELESS_BIT;
 // ...
-framebffer_info.pAttachments = NULL; // pAttachments is ignored here now
+framebuffer_info.pAttachments = NULL; // pAttachments is ignored here now
 
 vkCreateFramebuffer(device, &framebuffer_info, NULL, &framebuffer_object);
 

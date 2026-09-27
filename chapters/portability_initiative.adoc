@@ -17,6 +17,7 @@ The link:https://www.vulkan.org/porting#vulkan-portability-initiative[Vulkan Por
 
 image::{images}portability_initiative_overview.png[portability_initiative_overview.png]
 
+[[translation-layer]]
 == Translation Layer
 
 Layered implementations fight industry fragmentation by enabling more applications to run on more platforms, even in a fragmented industry API landscape.  For example, the first row in the diagram below shows how Vulkan is being used as a porting target to bring additional APIs to platforms to enable more content without the need for additional kernel-level drivers.  Layered API implementations have been used to successfully ship production applications on multiple platforms.

@@ -60,6 +60,7 @@ There are also other publicly available layers that can be used to help in devel
   * link:https://developer.qualcomm.com/software/adreno-gpu-sdk/tools[`VK_LAYER_adreno`], the Vulkan Adreno Layer.
     Checks Vulkan applications for best practices on Qualcomm Adreno devices.
 
+[[debugging]]
 == Debugging
 
 Debugging something running on a GPU can be incredibly hard, luckily there are tools out there to help.

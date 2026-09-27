@@ -78,7 +78,7 @@ This means after enabling the extension, an application will still need to xref:
 
 == Promotion Process
 
-When minor versions of xref:{chapters}vulkan_release_summary.adoc#vulkan-release-summary[Vulkan are released], some extensions are link:https://docs.vulkan.org/spec/latest/chapters/extensions.html#extendingvulkan-compatibility-promotion[promoted as defined in the spec]. The goal of promotion is to have extended functionality, that the Vulkan Working Group has decided is widely supported, to be in the core Vulkan spec. More details about Vulkan versions can be found in the xref:{chapters}versions.adoc#versions[version chapter].
+When minor versions of xref:{chapters}vulkan_release_summary.adoc#vulkan-release-summary[Vulkan are released], some extensions are link:https://docs.vulkan.org/spec/latest/chapters/extensions.html#extendingvulkan-compatibility-promotion[promoted as defined in the spec]. The goal of promotion is to have extended functionality, that the Vulkan Working Group has decided is widely supported, to be in the core Vulkan spec. More details about Vulkan versions can be found in the xref:{chapters}versions.adoc#vulkan-versions-porting-guide[version chapter].
 
 An example would be something such as `VK_KHR_get_physical_device_properties2` which is used for most other extensions. In Vulkan 1.0, an application has to query for support of `VK_KHR_get_physical_device_properties2` before being able to call a function such as `vkGetPhysicalDeviceFeatures2KHR`. Starting in Vulkan 1.1, the `vkGetPhysicalDeviceFeatures2` function is guaranteed to be supported.
 

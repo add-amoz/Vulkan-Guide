@@ -71,7 +71,7 @@ Some devices might support `bufferDeviceAddress`, but not `shaderInt64`. The way
 
 === Alignment
 
-See dedicated xref:{chapters}sparse_resources.adoc#sparse-resources[BDA Alignment chapter].
+See dedicated xref:{chapters}buffer_device_address_alignment.adoc#buffer-device-address-alignment[BDA Alignment chapter].
 
 === Nullptr
 

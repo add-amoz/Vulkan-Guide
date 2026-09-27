@@ -53,7 +53,7 @@ Vulkan Video adheres to the Vulkan philosophy of providing flexible, fine-graine
 
 [NOTE]
 ====
-Provisional extensions for encoding videos are already in the works, link:https://github.com/KhronosGroup/Vulkan-Docs/issues/1694[feedback] is welcome
+Video encoding is also available through the `VK_KHR_video_encode_queue`, `VK_KHR_video_encode_h264` and `VK_KHR_video_encode_h265` extensions, link:https://github.com/KhronosGroup/Vulkan-Docs/issues/1694[feedback] is welcome
 ====
 
 == Machine Learning

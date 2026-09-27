@@ -57,7 +57,7 @@ link:https://github.com/KhronosGroup/Vulkan-Profiles/tree/main/profiles
 the Khronos Roadmap profiles. The others are maintained by Google and LunarG:
 
 * *LunarG Desktop Baseline 2022* - A baseline profile for desktop platforms
-(link:https://github.com/KhronosGroup/Vulkan-Profiles/blob/main/profiles/VP_LUNARG_desktop_baseline_2022[JSON Definitions])
+(link:https://github.com/KhronosGroup/Vulkan-Profiles/tree/main/profiles/LunarG/VP_LUNARG_desktop_baseline_2022[JSON Definitions])
 * *Android Baseline 2022* - A baseline profile specifically for Android devices (link:https://vulkan.lunarg.com/doc/sdk/latest/windows/profiles_api_library.html[Documentation], link:https://github.com/KhronosGroup/Vulkan-Profiles/blob/main/profiles/VP_ANDROID_baseline_2022.json[JSON Definition])
 * *Roadmap 2024* - A forward-looking profile that hardware vendors are
 encouraged to support in future implementations (link:https://vulkan.lunarg.com/doc/sdk/latest/windows/profiles_api_library.html[Documentation],

@@ -158,7 +158,7 @@ linked into other pipelines.
 define how to create a pipeline library. Instead, this functionality is left to
 other extensions which make use of the functionality provided by
 `VK_KHR_pipeline_library`.
-Currently, the only example of this is `VK_KHR_ray_tracing_pipeline`.
+Currently, the examples of this are `VK_KHR_ray_tracing_pipeline` and `VK_EXT_graphics_pipeline_library`.
 `VK_KHR_pipeline_library` was defined as a separate extension to allow for the
 possibility of using the same functionality in other extensions in the future
 without introducing a dependency on the ray tracing extensions.
@@ -192,7 +192,9 @@ tracing extensions.
 Only operations that are specifically noted as supporting deferral may be deferred.
 Currently the only operations which support deferral are `vkCreateRayTracingPipelinesKHR`,
 `vkBuildAccelerationStructuresKHR`, `vkCopyAccelerationStructureKHR`,
-`vkCopyMemoryToAccelerationStructureKHR`, and `vkCopyAccelerationStructureToMemoryKHR`
+`vkCopyMemoryToAccelerationStructureKHR`, `vkCopyAccelerationStructureToMemoryKHR`,
+`vkBuildMicromapsEXT`, `vkCopyMicromapEXT`, `vkCopyMemoryToMicromapEXT`,
+`vkCopyMicromapToMemoryEXT`, and `vkCreateDataGraphPipelinesARM`
 
 To request that an operation is deferred:
 

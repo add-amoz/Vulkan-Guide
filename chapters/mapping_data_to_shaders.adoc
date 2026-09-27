@@ -84,10 +84,10 @@ Using `VK_BUFFER_USAGE_VERTEX_BUFFER_BIT` when creating the `VkBuffer` is what m
 ----
 vkBeginCommandBuffer();
 // ...
-vkCmdBindVertexBuffer();
+vkCmdBindVertexBuffers();
 vkCmdDraw();
 // ...
-vkCmdBindVertexBuffer();
+vkCmdBindVertexBuffers();
 vkCmdBindIndexBuffer();
 vkCmdDrawIndexed();
 // ...
@@ -286,7 +286,7 @@ OpDecorate %combinedImageSampler DescriptorSet 0
 OpDecorate %combinedImageSampler Binding 0
 
 %imageType            = OpTypeImage %float 2D 0 0 0 1 Unknown
-%sampleImageType      = OpTypeSampledImage imageType
+%sampleImageType      = OpTypeSampledImage %imageType
 %ptr                  = OpTypePointer UniformConstant %sampleImageType
 %combinedImageSampler = OpVariable %ptr UniformConstant
 
@@ -611,4 +611,4 @@ With all the above examples it is important to be aware that there are link:http
   ** `VkPhysicalDeviceDescriptorIndexingProperties` if using xref:{chapters}extensions/VK_EXT_descriptor_indexing.adoc#VK_EXT_descriptor_indexing[Descriptor Indexing]
   ** `VkPhysicalDeviceInlineUniformBlockPropertiesEXT` if using xref:{chapters}extensions/VK_EXT_inline_uniform_block.adoc#VK_EXT_inline_uniform_block[Inline Uniform Block]
   * Push Constants
-  ** `maxPushConstantsSize` - guaranteed at least `128` bytes on all devices
+  ** `maxPushConstantsSize` - guaranteed at least `128` bytes on all devices (`256` bytes on Vulkan 1.4 devices)

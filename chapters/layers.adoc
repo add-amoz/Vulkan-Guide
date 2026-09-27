@@ -38,7 +38,7 @@ This is to ensure the list of layer settings remains relatively stable across ve
 
 == Device Layers Deprecation
 
-There used to be both instance layers and device layers, but device layers were link:https://docs.vulkan.org/spec/latest/chapters/extensions.html#extendingvulkan-layers-devicelayerdeprecation[deprecated] early in Vulkan's life and should be avoided.
+There used to be both instance layers and device layers, but device layers were link:https://docs.vulkan.org/spec/latest/appendices/legacy.html#legacy-devicelayers[deprecated] early in Vulkan's life and should be avoided.
 
 == Creating a Layer
 

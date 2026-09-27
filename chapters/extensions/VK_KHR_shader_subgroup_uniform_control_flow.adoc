@@ -79,7 +79,7 @@ the example:
 // Free should be initialized to 0.
 layout(set=0, binding=0) buffer BUFFER { uint free; uint data[]; } b;
 // Note the addition of a new attribute.
-void main() [[subroup_uniform_control_flow]] {
+void main() [[subgroup_uniform_control_flow]] {
   bool needs_space = false;
   ...
   // Note the change of the condition.

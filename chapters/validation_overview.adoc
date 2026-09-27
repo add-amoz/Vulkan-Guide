@@ -24,7 +24,7 @@ set of conditions that **must** be met in order to achieve well-defined run-time
 
 One of the main advantages of Vulkan, as an explicit API, is that the implementation (driver) doesn't waste time checking for valid input. In OpenGL, the implementation would have to always check for valid usage which added noticeable overhead. There is no link:https://www.khronos.org/opengl/wiki/OpenGL_Error[glGetError] equivalent in Vulkan.
 
-The valid usages will be listed in the spec after every function and structure. For example, if a VUID checks for an invalid `VkImage` at `VkBindImageMemory` then the valid usage in the spec is found under `VkBindImageMemory`. This is because the Validation Layers will only know about all the information at `VkBindImageMemory` during the execution of the application.
+The valid usages will be listed in the spec after every function and structure. For example, if a VUID checks for an invalid `VkImage` at `vkBindImageMemory` then the valid usage in the spec is found under `vkBindImageMemory`. This is because the Validation Layers will only know about all the information at `vkBindImageMemory` during the execution of the application.
 
 == Undefined Behavior
 
@@ -86,7 +86,7 @@ This information can be found in the link:https://github.com/KhronosGroup/Vulkan
 
 == Special Usage Tags
 
-The link:https://vulkan.lunarg.com/doc/sdk/latest/windows/best_practices.html[Best Practices layer] will produce warnings when an application tries to use any extension with link:https://docs.vulkan.org/spec/latest/chapters/extensions.html#extendingvulkan-compatibility-specialuse[special usage tags]. An example of such an extension is xref:{chapters}extensions/translation_layer_extensions.adoc#vk_ext_transform_feedback[VK_EXT_transform_feedback] which is only designed for emulation layers. If an application's intended usage corresponds to one of the special use cases, the following approach will allow you to ignore the warnings.
+The link:https://vulkan.lunarg.com/doc/sdk/latest/windows/best_practices.html[Best Practices layer] will produce warnings when an application tries to use any extension with link:https://docs.vulkan.org/spec/latest/chapters/extensions.html#extendingvulkan-compatibility-specialuse[special usage tags]. An example of such an extension is xref:{chapters}extensions/translation_layer_extensions.adoc#VK_EXT_transform_feedback[VK_EXT_transform_feedback] which is only designed for emulation layers. If an application's intended usage corresponds to one of the special use cases, the following approach will allow you to ignore the warnings.
 
 Ignoring Special Usage Warnings with `VK_EXT_debug_report`
 

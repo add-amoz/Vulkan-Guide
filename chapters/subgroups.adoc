@@ -90,7 +90,7 @@ link:https://github.com/KhronosGroup/GLSL/blob/master/extensions/ext/GLSL_EXT_sh
 
 This extension allows subgroup operations to use 8-bit integer, 16-bit integer, 64-bit integer, 16-bit floating-point, and vectors of these types in group operations with subgroup scope if the implementation supports the types already.
 
-For example, if an implementation supports 8-bit integers an application can now use the GLSL `genI8Type subgroupAdd(genI8Type value);` call which will get mapped to `OpGroupNonUniformFAdd` in SPIR-V.
+For example, if an implementation supports 8-bit integers an application can now use the GLSL `genI8Type subgroupAdd(genI8Type value);` call which will get mapped to `OpGroupNonUniformIAdd` in SPIR-V.
 
 [[VK_EXT_shader_subgroup_ballot-and-VK_EXT_shader_subgroup_vote]]
 == VK_EXT_shader_subgroup_ballot and VK_EXT_shader_subgroup_vote

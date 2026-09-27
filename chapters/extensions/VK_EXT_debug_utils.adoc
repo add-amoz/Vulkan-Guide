@@ -80,7 +80,7 @@ if (vkCreateDebugUtilsMessengerEXT(instance, &createInfo, nullptr, &debugMesseng
 
 // Don't forget to clean up after
 void OnDestroy() {
-    vkDestroyDebugUtilsMessengerEXT(instance, messenger, pAllocator);
+    vkDestroyDebugUtilsMessengerEXT(instance, debugMessenger, nullptr);
 }
 ----
 

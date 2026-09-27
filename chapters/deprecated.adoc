@@ -1027,21 +1027,21 @@ vkCmdEndRendering(commandBuffer);
 
 ==== Fallback Strategy
 
-To support both render pass objects and dynamic rendering, check for the availability of Vulkan 1.4 or the `VK_KHR_dynamic_rendering` extension:
+To support both render pass objects and dynamic rendering, check for the availability of Vulkan 1.3 or the `VK_KHR_dynamic_rendering` extension:
 
 [source,cpp]
 ----
-// Check if Vulkan 1.4 or VK_KHR_dynamic_rendering is supported
+// Check if Vulkan 1.3 or VK_KHR_dynamic_rendering is supported
 bool hasDynamicRendering = false;
 
 // For device-level version check
 VkPhysicalDeviceProperties properties;
 vkGetPhysicalDeviceProperties(physicalDevice, &properties);
-if (properties.apiVersion >= VK_API_VERSION_1_4) {
+if (properties.apiVersion >= VK_API_VERSION_1_3) {
     hasDynamicRendering = true;
 }
 
-// Or check for extension if not using Vulkan 1.4
+// Or check for extension if not using Vulkan 1.3
 if (!hasDynamicRendering) {
     uint32_t extensionCount = 0;
     vkEnumerateDeviceExtensionProperties(physicalDevice, nullptr, &extensionCount, nullptr);
@@ -1150,7 +1150,8 @@ vkCreateShadersEXT(device, 1, &vsCI, nullptr, &shaders[0]);
 vkCreateShadersEXT(device, 1, &fsCI, nullptr, &shaders[1]);
 
 // Bind shaders instead of a pipeline
-vkCmdBindShadersEXT(cmd, VK_SHADER_STAGE_VERTEX_BIT | VK_SHADER_STAGE_FRAGMENT_BIT, shaders);
+VkShaderStageFlagBits stages[2] = { VK_SHADER_STAGE_VERTEX_BIT, VK_SHADER_STAGE_FRAGMENT_BIT };
+vkCmdBindShadersEXT(cmd, 2, stages, shaders);
 
 // Set dynamic state as needed (examples)
 vkCmdSetViewport(cmd, 0, 1, &viewport);
@@ -1187,7 +1188,7 @@ devCI.pNext = &shaderObjectFeatures;
 vkCreateDevice(physicalDevice, &devCI, nullptr, &device);
 
 // Record command buffers using only Shader Objects
-vkCmdBindShadersEXT(cmd, VK_SHADER_STAGE_VERTEX_BIT | VK_SHADER_STAGE_FRAGMENT_BIT, shaders);
+vkCmdBindShadersEXT(cmd, 2, stages, shaders);
 vkCmdSetViewport(cmd, 0, 1, &viewport);
 vkCmdSetScissor(cmd, 0, 1, &scissor);
 // ... other dynamic states as required

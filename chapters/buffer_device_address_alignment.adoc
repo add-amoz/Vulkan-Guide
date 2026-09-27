@@ -16,7 +16,7 @@ All variables accessed with `PhysicalStorageBuffer` must have an `Aligned` memor
 OpStore %ptr %obj Aligned 16
 ----
 
-Shading languages will have a default, but can allow you to align it explicitly (ex `buffer_reference_alignment`).
+Shading languages will have a default, but can allow you to align it explicitly (ex `buffer_reference_align`).
 
 The goal of this alignment is that this is a promise for how aligned this specific pointer is.
 The compiler has no idea what the address will be when the shader is compiled.

@@ -60,7 +60,7 @@ vkAllocateMemory(device, &memoryAllocateInfo, nullptr, &disjointMemoryPlane0);
 // Allocate the same for each plane
 
 // Bind plane 0 memory
-VkBindImagePlaneMemoryInfo bindImagePlaneMemoryInfo = {};
+VkBindImagePlaneMemoryInfo bindImagePlaneMemoryInfo0 = {};
 bindImagePlaneMemoryInfo0.planeAspect               = VK_IMAGE_ASPECT_PLANE_0_BIT;
 
 VkBindImageMemoryInfo bindImageMemoryInfo = {};
@@ -107,7 +107,7 @@ bufferCopyRegions[2].imageSubresource.aspectMask  = VK_IMAGE_ASPECT_PLANE_2_BIT;
 vkCmdCopyBufferToImage(...)
 ----
 
-It is worth noting here that the `imageOffset` is zero because its base is the plane, not the entire sname:VkImage. So when using the `imageOffset` make sure to start from base of the plane and not always plane 0.
+It is worth noting here that the `imageOffset` is zero because its base is the plane, not the entire `VkImage`. So when using the `imageOffset` make sure to start from base of the plane and not always plane 0.
 
 == VkSamplerYcbcrConversion
 
@@ -164,7 +164,7 @@ imageFormatProperties2.imageFormatProperties = imageFormatProperties;
 VkPhysicalDeviceImageFormatInfo2 imageFormatInfo = { /* ... */ };
 // ...
 imageFormatInfo.format = formatToQuery;
-vkGetPhysicalDeviceImageFormatProperties2(physicalDevice, &imageFormatInfo, &imageFormatProperties2));
+vkGetPhysicalDeviceImageFormatProperties2(physicalDevice, &imageFormatInfo, &imageFormatProperties2);
 
 printf("combinedImageSamplerDescriptorCount = %u\n", samplerYcbcrConversionImageFormatProperties.combinedImageSamplerDescriptorCount);
 ----

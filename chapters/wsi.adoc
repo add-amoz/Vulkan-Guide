@@ -24,7 +24,7 @@ Each platform that supports a Vulkan Surface has its own way to create a `VkSurf
   * macOS - link:https://docs.vulkan.org/spec/latest/chapters/VK_KHR_surface/wsi.html#vkCreateMacOSSurfaceMVK[vkCreateMacOSSurfaceMVK]
   * Metal - link:https://docs.vulkan.org/spec/latest/chapters/VK_KHR_surface/wsi.html#vkCreateMetalSurfaceEXT[vkCreateMetalSurfaceEXT]
   * VI - link:https://docs.vulkan.org/spec/latest/chapters/VK_KHR_surface/wsi.html#vkCreateViSurfaceNN[vkCreateViSurfaceNN]
-  * Wayland - link:https://docs.vulkan.org/spec/latest/chapters/VK_KHR_surface/wsi.html#vkWaylandSurfaceCreateInfoKHR[vkWaylandSurfaceCreateInfoKHR]
+  * Wayland - link:https://docs.vulkan.org/spec/latest/chapters/VK_KHR_surface/wsi.html#vkCreateWaylandSurfaceKHR[vkCreateWaylandSurfaceKHR]
   * QNX - link:https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateScreenSurfaceQNX.html[vkCreateScreenSurfaceQNX]
   * Windows - link:https://docs.vulkan.org/spec/latest/chapters/VK_KHR_surface/wsi.html#vkCreateWin32SurfaceKHR[vkCreateWin32SurfaceKHR]
   * XCB - link:https://docs.vulkan.org/spec/latest/chapters/VK_KHR_surface/wsi.html#vkCreateXcbSurfaceKHR[vkCreateXcbSurfaceKHR]

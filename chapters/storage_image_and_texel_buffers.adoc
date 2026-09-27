@@ -474,7 +474,7 @@ Texel buffers generally work similarly on tile-based and immediate mode renderer
 
 == Format Compatibility Requirements
 
-When using storage images and texel buffers, it's crucial to understand the format compatibility rules, which differ slightly between these resource types. Mismatches between shader formats and resource formats can lead to undefined behavior and potential validation warnings.
+When using storage images and texel buffers, it's crucial to understand the format compatibility rules. Mismatches between shader formats and resource formats can lead to undefined behavior and potential validation warnings.
 
 === Differences in Format Compatibility Rules
 
@@ -488,7 +488,7 @@ Both resource types require exact format matching between the shader and the vie
 
 === SPIR-V Image Format and Vulkan Format Compatibility
 
-The Vulkan Specification defines a table of link:https://docs.vulkan.org/spec/latest/chapters/textures.html#formats-compatibility-classes[Compatibility Between SPIR-V Image Formats and Vulkan Formats] that shows the exact mapping between SPIR-V Image Formats and Vulkan Formats.
+The Vulkan Specification defines a table of link:https://docs.vulkan.org/spec/latest/appendices/spirvenv.html#spirvenv-image-formats[Compatibility Between SPIR-V Image Formats and Vulkan Formats] that shows the exact mapping between SPIR-V Image Formats and Vulkan Formats.
 
 ==== Storage Images Format Requirements
 
@@ -583,7 +583,7 @@ vec4 swizzled = value.bgra; // Manually swizzle components
 
 * **Use the Unknown Format in SPIR-V**: If you need flexibility in the
 formats you use, you can use the `Unknown` format in SPIR-V, which is compatible with any Vulkan format.
-   - This requires enabling the `shaderStorageImageWriteWithoutFormat` feature.
+   - This requires enabling the `shaderStorageImageWriteWithoutFormat` feature (for writes) and the `shaderStorageImageReadWithoutFormat` feature (for reads).
    - In GLSL, this means omitting the format qualifier:
 
 [source,glsl]
@@ -656,7 +656,7 @@ layout(set = 0, binding = 0) uniform image2D storageImage;
 3. **Layout Transitions**: Storage images typically use `VK_IMAGE_LAYOUT_GENERAL`, but transitioning to this layout is still required.
    - Always transition images to the correct layout before use
    - Be aware that `VK_IMAGE_LAYOUT_GENERAL` may be less efficient than specialized layouts
-   - Consider using `VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL` if you only need read access
+   - Consider using a sampled image in `VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL` if you only need read access (storage image descriptors cannot use this layout)
 
 4. **Atomic Operations**: Atomic operations on storage images and buffers can be expensive.
    - Minimize the use of atomic operations when possible

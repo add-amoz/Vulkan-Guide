@@ -59,7 +59,7 @@ This map is for helping to quickly find which dynamic state goes with other comp
 | VK_DYNAMIC_STATE_STENCIL_REFERENCE
             | vkCmdSetStencilReference
                         | Fragment Shader
-                                    | VkPipelineDepthStencilStateCreateInfo::reference
+                                    | VkStencilOpState::reference
                                                 |
 | VK_DYNAMIC_STATE_CULL_MODE
             | vkCmdSetCullMode
@@ -132,10 +132,10 @@ This map is for helping to quickly find which dynamic state goes with other comp
 | VK_DYNAMIC_STATE_STENCIL_OP
             | vkCmdSetStencilOp
                         | Fragment Shader
-                                    | VkPipelineDepthStencilStateCreateInfo::failOp
-                                      VkPipelineDepthStencilStateCreateInfo::passOp
-                                      VkPipelineDepthStencilStateCreateInfo::depthFailOp
-                                      VkPipelineDepthStencilStateCreateInfo::compareOp
+                                    | VkStencilOpState::failOp
+                                      VkStencilOpState::passOp
+                                      VkStencilOpState::depthFailOp
+                                      VkStencilOpState::compareOp
                                                 | VK_EXT_extended_dynamic_state
                                                   VK_EXT_shader_object
 | VK_DYNAMIC_STATE_RASTERIZER_DISCARD_ENABLE

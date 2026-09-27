@@ -152,7 +152,7 @@ Most vendor-specific tools provide metrics that help identify which part of the 
 *   **Bandwidth Utilization**: High utilization of the memory controller indicates you are "memory bound."
 
 === Common GPU Issues
-*   **Vertex Bound**: Too many vertices or inefficient vertex fetch. Use `VK_KHR_mesh_shader` to replace the traditional vertex pipeline if geometry is the bottleneck.
+*   **Vertex Bound**: Too many vertices or inefficient vertex fetch. Use `VK_EXT_mesh_shader` to replace the traditional vertex pipeline if geometry is the bottleneck.
 *   **Fragment Bound (Fill Rate)**: High overdraw is the most common cause.
     - **Early-Z**: Ensure you are using `VK_PIPELINE_STAGE_EARLY_FRAGMENT_TESTS_BIT` and front-to-back sorting.
     - **Overdraw Analysis**: Use RenderDoc's overdraw overlay to find areas where the same pixel is shaded multiple times.

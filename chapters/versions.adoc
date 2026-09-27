@@ -191,7 +191,6 @@ Enhanced atomic operations in shaders:
 link:https://docs.vulkan.org/spec/latest/appendices/spirvenv.html#spirvenv-capabilities[Vulkan Spec: SPIR-V Capabilities]
 
 * 64-bit integer atomics
-* Floating-point atomics
 * Shared memory atomics
 
 === Other Notable Features

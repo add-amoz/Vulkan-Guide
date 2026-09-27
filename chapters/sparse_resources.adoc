@@ -196,7 +196,7 @@ for (uint32_t i = 0; i < sparseRequirementsCount; ++i)
             VK_SPARSE_IMAGE_FORMAT_SINGLE_MIPTAIL_BIT)
         {
             VkSparseMemoryBind* pBind = &binds[bindCount];
-            pBind->memorySize = pSparseReqs[i].imageMipTailSize;
+            pBind->size = pSparseReqs[i].imageMipTailSize;
             bindCount++;
 
             // ... Allocate memory range
@@ -213,7 +213,7 @@ for (uint32_t i = 0; i < sparseRequirementsCount; ++i)
             for (uint32_t a = 0; a < sparseImageInfo.arrayLayers; ++a)
             {
                 VkSparseMemoryBind* pBind = &binds[bindCount];
-                pBind->memorySize = pSparseReqs[i].imageMipTailSize;
+                pBind->size = pSparseReqs[i].imageMipTailSize;
                 bindCount++;
 
                 // ... Allocate memory range
@@ -222,7 +222,7 @@ for (uint32_t i = 0; i < sparseRequirementsCount; ++i)
                                         (a * pSparseReqs[i].imageMipTailStride);
 
                 pBind->memoryOffset = /* allocated memoryOffset */;
-                pBind->memory = /* allocated memory */
+                pBind->memory = /* allocated memory */;
                 pBind->flags = VK_SPARSE_MEMORY_BIND_METADATA_BIT;
             }
         }
@@ -268,9 +268,9 @@ for (uint32_t i = 0; i < sparseRequirementsCount; ++i)
             pBind->flags = 0;
         }
     }
-
-    free(pSparseReqs);
 }
+
+free(pSparseReqs);
 
 const VkSparseImageOpaqueMemoryBindInfo opaqueBindInfo =
 {

@@ -67,7 +67,7 @@ struct SceneUBO {
     float4x4 projection;
 };
 [[vk::binding(0, 0)]]
-ConstantBuffer<SceneUBO> ubo : register(0, 0);
+ConstantBuffer<SceneUBO> ubo : register(b0, space0);
 // Vertex shader main function
 VSOutput main(VSInput input) {
     VSOutput output = (VSOutput)0;
@@ -178,7 +178,7 @@ A great starting point on using HLSL in Vulkan via SPIR-V is the link:https://gi
 
 [[vk-namespace]]
 == The Vulkan HLSL namespace
-To make HLSL compatible with Vulkan, an link:https://github.com/microsoft/DirectXShaderCompiler/blob/main/docs/SPIR-V.rst#the-implicit-vk-namespace)[implicit namespace] has been introduced that provides an interface for Vulkan-specific features.
+To make HLSL compatible with Vulkan, an link:https://github.com/microsoft/DirectXShaderCompiler/blob/main/docs/SPIR-V.rst#the-implicit-vk-namespace[implicit namespace] has been introduced that provides an interface for Vulkan-specific features.
 
 [[syntax-comparison]]
 == Syntax comparison
@@ -246,7 +246,7 @@ VSOutput main(VSInput input, uint VertexIndex : SV_VertexID)
 }
 ----
 
-Aside from the syntax differences, built-ins use HLSL names. E.g. `gl_vertex` becomes `VertexIndex` in HLSL. A list of GLSL to HLSL built-in mappings can be found link:https://anteru.net/blog/2016/mapping-between-HLSL-and-GLSL/[here].
+Aside from the syntax differences, built-ins use HLSL names. E.g. `gl_VertexIndex` becomes `VertexIndex` in HLSL. A list of GLSL to HLSL built-in mappings can be found link:https://anteru.net/blog/2016/mapping-between-HLSL-and-GLSL/[here].
 
 [[DirectXShaderCompiler]]
 == DirectXShaderCompiler (DXC)
@@ -430,11 +430,11 @@ When compiling HLSL with DXC you need to select a target shader profile. The nam
 | `lib`
 | All raytracing related shaders are built using the `lib` shader target profile and must use at least shader model 6.3 (e.g. `lib_6_3`).
 
-| `VK_SHADER_STAGE_TASK_BIT`
+| `VK_SHADER_STAGE_TASK_BIT_EXT`
 | `as`
 | Amplification shader in HLSL terminology. Must use at least shader model 6.5 (e.g. `as_6_5`).
 
-| `VK_SHADER_STAGE_MESH_BIT`
+| `VK_SHADER_STAGE_MESH_BIT_EXT`
 | `ms`
 | Must use at least shader model 6.5 (e.g. `ms_6_5`).
 

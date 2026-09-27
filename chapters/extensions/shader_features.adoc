@@ -207,7 +207,7 @@ link:https://registry.khronos.org/OpenGL/extensions/ARB/ARB_shader_draw_paramete
 
 This extension adds the `BaseInstance`, `BaseVertex`, and `DrawIndex` built-in for vertex shaders. This was added as there are legitimate use cases for both inclusion and exclusion of the `BaseVertex` or `BaseInstance` parameters in `VertexId` and `InstanceId`, respectively.
 
-In GLSL these are represented by `gl_BaseInstanceARB`, `gl_BaseVertexARB` and `gl_BaseInstanceARB` built-ins.
+In GLSL these are represented by `gl_BaseInstanceARB`, `gl_BaseVertexARB` and `gl_DrawIDARB` built-ins.
 
 [[VK_EXT_shader_stencil_export]]
 == VK_EXT_shader_stencil_export
@@ -256,7 +256,7 @@ This extension allows the shader to read the value of a monotonically incrementi
 ====
 Promoted to core in Vulkan 1.3
 
-link:http://htmlpreview.github.io/?https://github.com/KhronosGroup/SPIRV-Registry/blob/main/extensions/KHR/SPV_KHR_shader_clock.html[SPV_KHR_non_semantic_info]
+link:http://htmlpreview.github.io/?https://github.com/KhronosGroup/SPIRV-Registry/blob/main/extensions/KHR/SPV_KHR_non_semantic_info.html[SPV_KHR_non_semantic_info]
 ====
 
 This extension exposes link:https://htmlpreview.github.io/?https://github.com/KhronosGroup/SPIRV-Registry/blob/main/extensions/KHR/SPV_KHR_non_semantic_info.html[SPV_KHR_non_semantic_info] which link:https://github.com/KhronosGroup/SPIRV-Guide/blob/master/chapters/nonsemantic.md[adds the ability] to declare extended instruction sets that have no semantic impact and can be safely removed from a module.

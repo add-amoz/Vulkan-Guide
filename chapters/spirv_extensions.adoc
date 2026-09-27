@@ -70,7 +70,7 @@ In this example, either `VK_KHR_8bit_storage` or a Vulkan 1.2 device is required
 
 If using a Vulkan 1.0 or 1.1 device, the `VK_KHR_8bit_storage` extension will need to be xref:{chapters}enabling_extensions.adoc#enabling-extensions[supported and enabled] at device creation time.
 
-Regardless of using the Vulkan extension or version, if required, an app still **must** make sure any matching Vulkan feature needed is xref:{chapters}enabling_features.adoc#enabling-extensions[supported and enabled] at device creation time. Some SPIR-V extensions and capabilities don't require a Vulkan feature, but this is all listed in the tables in the spec.
+Regardless of using the Vulkan extension or version, if required, an app still **must** make sure any matching Vulkan feature needed is xref:{chapters}enabling_features.adoc#enabling-features[supported and enabled] at device creation time. Some SPIR-V extensions and capabilities don't require a Vulkan feature, but this is all listed in the tables in the spec.
 
 For this example, either the `VkPhysicalDeviceVulkan12Features::uniformAndStorageBuffer8BitAccess` or `VkPhysicalDevice8BitStorageFeatures::uniformAndStorageBuffer8BitAccess` feature must be supported and enabled.
 

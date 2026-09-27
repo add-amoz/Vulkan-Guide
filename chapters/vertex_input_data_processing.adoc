@@ -269,7 +269,7 @@ struct Vertex {
 };
 ----
 
-The data being read will be overlapped from how the `format` and `offset` is set
+The data being read will be overlapped from how the `format` and `offset` are set
 
 [source,c]
 ----

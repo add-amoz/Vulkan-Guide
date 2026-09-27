@@ -86,7 +86,7 @@ Another way to look at promotion is with the `VK_KHR_8bit_storage` as an example
 
 === Promotion Change of Behavior
 
-It is important to realize there is a subtle difference for **some** extension that are promoted. link:https://docs.vulkan.org/spec/latest/chapters/extensions.html#extendingvulkan-compatibility-promotion[The spec describes] how promotion **can** involve minor changes such as in the extension's "`Feature advertisement/enablement`". To best describe the subtlety of this, `VK_KHR_8bit_storage` can be used as a use case.
+It is important to realize there is a subtle difference for **some** extensions that are promoted. link:https://docs.vulkan.org/spec/latest/chapters/extensions.html#extendingvulkan-compatibility-promotion[The spec describes] how promotion **can** involve minor changes such as in the extension's "`Feature advertisement/enablement`". To best describe the subtlety of this, `VK_KHR_8bit_storage` can be used as a use case.
 
 The link:https://registry.khronos.org/vulkan/specs/latest/man/html/VK_KHR_8bit_storage.html#_promotion_to_vulkan_1_2[Vulkan spec describes the change] for `VK_KHR_8bit_storage` for Vulkan 1.2 where it states:
 

@@ -47,7 +47,7 @@ Just because the platform supports Vulkan does not mean there is device support.
 
 A driver targeting a physical piece of GPU hardware is the most common case for a Vulkan implementation. It is important to understand that while a certain GPU might have the physical capabilities of running Vulkan, it still requires a driver to control it. The driver is in charge of getting the Vulkan calls mapped to the hardware in the most efficient way possible.
 
-Drivers, like any software, are updated and this means there can be many variations of drivers for the same physical device and platform. There is a link:https://vulkan.gpuinfo.org/[Vulkan Database], developed and maintained by Sascha Willems, which is the largest collection of recorded Vulkan implementation details
+Drivers, like any software, are updated and this means there can be many variations of drivers for the same physical device and platform. There is a link:https://vulkan.gpuinfo.org/[Vulkan Database], developed and maintained by Sascha Willems, which is the largest collection of recorded Vulkan implementation details.
 
 [NOTE]
 ====
@@ -56,7 +56,7 @@ Just because a physical device or platform isn't in the Vulkan Database doesn't 
 
 === Null Driver
 
-The term "`null driver`" is given to any driver that accepts Vulkan API calls, but does not do anything with them. This is common for testing interactions with the driver without needing any working implementation backing it. Many uses cases such as creating xref:{chapters}vulkan_cts.adoc#vulkan-cts[CTS tests] for new features, link:https://github.com/KhronosGroup/Vulkan-ValidationLayers/blob/main/docs/creating_tests.md#running-tests-on-devsim-and-mockicd[testing the Validation Layers], and more rely on the idea of a null driver.
+The term "`null driver`" is given to any driver that accepts Vulkan API calls, but does not do anything with them. This is common for testing interactions with the driver without needing any working implementation backing it. Many use cases such as creating xref:{chapters}vulkan_cts.adoc#vulkan-cts[CTS tests] for new features, link:https://github.com/KhronosGroup/Vulkan-ValidationLayers/blob/main/docs/creating_tests.md#running-tests-on-devsim-and-mockicd[testing the Validation Layers], and more rely on the idea of a null driver.
 
 Khronos provides the link:https://github.com/KhronosGroup/Vulkan-Tools/tree/master/icd[Mock ICD] as one implementation of a null driver that works on various platforms.
 
@@ -64,7 +64,7 @@ Khronos provides the link:https://github.com/KhronosGroup/Vulkan-Tools/tree/mast
 
 It is possible to create a Vulkan implementation that only runs on the CPU. This is useful if there is a need to test Vulkan that is hardware independent, but unlike the null driver, also outputs a valid result.
 
-link:https://github.com/google/swiftshader[SwiftShader] is an example of CPU-based implementation.
+link:https://github.com/google/swiftshader[SwiftShader] is an example of a CPU-based implementation.
 
 == Ways of Checking for Vulkan
 

@@ -15,8 +15,8 @@ When an implementation accesses memory from an interface, it needs to know the *
 
 Vulkan has 3 link:https://docs.vulkan.org/spec/latest/chapters/interfaces.html#interfaces-alignment-requirements[alignment requirements] that interface objects can be laid out in.
 
-- extended alignment (also know as `std140`)
-- base alignment (also know as `std430`)
+- extended alignment (also known as `std140`)
+- base alignment (also known as `std430`)
 - scalar alignment
 
 The spec language for alignment breaks down the rule for each of the following block member types.
@@ -102,7 +102,7 @@ Make sure to set `--relax-block-layout` when running the SPIR-V Validator and us
 
 [NOTE]
 ====
-Currently there is no way in GLSL to legally express relaxed block layout, but an developer can use the `--hlsl-offsets` with `glslang` to produce the desired offsets.
+Currently there is no way in GLSL to legally express relaxed block layout, but a developer can use the `--hlsl-offsets` with `glslang` to produce the desired offsets.
 ====
 
 [[VK_EXT_scalar_block_layout]]
@@ -132,7 +132,7 @@ Make sure to set `--scalar-block-layout` when running the SPIR-V Validator.
 
 [NOTE]
 ====
-The `Workgroup` storage class is not supported with `VK_EXT_scalar_block_layout` and the `workgroupMemoryExplicitLayoutScalarBlockLayout` in xref:{chapters}extensions/shader_features.adoc#VK_KHR_workgroup_memory_explicit_layout[VK_KHR_workgroup_memory_explicit_layout] is needed to enabled scalar support.
+The `Workgroup` storage class is not supported with `VK_EXT_scalar_block_layout` and the `workgroupMemoryExplicitLayoutScalarBlockLayout` in xref:{chapters}extensions/shader_features.adoc#VK_KHR_workgroup_memory_explicit_layout[VK_KHR_workgroup_memory_explicit_layout] is needed to enable scalar support.
 ====
 
 [[alignment-examples]]

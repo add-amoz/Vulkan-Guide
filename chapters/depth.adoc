@@ -12,7 +12,7 @@ The term `depth` is used in various spots in the xref:{chapters}vulkan_spec.adoc
 
 [NOTE]
 ====
-While stencil is closely related depth, this chapter does not aim to cover it outside the realm of API names
+While stencil is closely related to depth, this chapter does not aim to cover it outside the realm of API names
 ====
 
   *  <<graphics-pipeline, Graphics Pipeline>>
@@ -49,7 +49,7 @@ Inside the `VkGraphicsPipelineCreateInfo` there are many different values relate
 [[depth-formats]]
 == Depth Formats
 
-There are a few different depth formats and an implementation may expose support for in Vulkan.
+There are a few different depth formats that an implementation may expose support for in Vulkan.
 
 For **reading** from a depth image only `VK_FORMAT_D16_UNORM` and `VK_FORMAT_D32_SFLOAT` are required to support being read via sampling or blit operations.
 
@@ -129,7 +129,7 @@ When clearing, notice that `VkClearValue` is a union and `VkClearDepthStencilVal
 
 In the graphics pipeline, there are a series of link:https://docs.vulkan.org/spec/latest/chapters/pipelines.html#pipelines-graphics-subsets-pre-rasterization[pre-rasterization shader stages] that generate primitives to be rasterized. Before reaching the rasterization step, the final `vec4` position (`gl_Position`) of the last pre-rasterization stage runs through link:https://docs.vulkan.org/spec/latest/chapters/vertexpostproc.html[Fixed-Function Vertex Post-Processing].
 
-The following gives a high level overview of the various coordinates name and operations that occur before rasterization.
+The following gives a high level overview of the various coordinate names and operations that occur before rasterization.
 
 image::{images}depth_coordinates_flow.png[depth_coordinates_flow]
 
@@ -262,7 +262,7 @@ When using `OpTypeImage` in SPIR-V the `Depth` operand is ignored in Vulkan
 [[conservative-depth]]
 ==== Conservative depth
 
-The `DepthGreater`, `DepthLess`, and `DepthUnchanged` Execution Mode allow for a possible optimization for implementations that link:https://registry.khronos.org/OpenGL/extensions/ARB/ARB_conservative_depth.txt[relies on an early depth test to be run before the fragment]. This can be easily done in GLSL by declaring `gl_FragDepth` with the proper layout qualifier.
+The `DepthGreater`, `DepthLess`, and `DepthUnchanged` Execution Mode allow for a possible optimization for implementations that link:https://registry.khronos.org/OpenGL/extensions/ARB/ARB_conservative_depth.txt[rely on an early depth test to be run before the fragment]. This can be easily done in GLSL by declaring `gl_FragDepth` with the proper layout qualifier.
 
 [source,glsl]
 ----
@@ -279,7 +279,7 @@ layout(depth_less) out float gl_FragDepth;
 layout(depth_unchanged) out float gl_FragDepth;
 ----
 
-Violating the condition​ yields undefined behavior.
+Violating the condition yields undefined behavior.
 
 [[per-sample-processing-and-coverage-mask]]
 === Per-sample processing and coverage mask

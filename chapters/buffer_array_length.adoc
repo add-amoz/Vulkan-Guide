@@ -7,7 +7,7 @@ ifndef::images[:images: images/]
 [[buffer-array-length]]
 = Buffer Array Length (OpArrayLength)
 
-Sometimes when writing your shader you might not know the length of the array in your buffer. To solve this there is a `OpArrayLength` operation in SPIR-V that can be used to query the size at runtime.
+Sometimes when writing your shader you might not know the length of the array in your buffer. To solve this there is an `OpArrayLength` operation in SPIR-V that can be used to query the size at runtime.
 
 The following link:https://godbolt.org/z/jbqq65cK5[GLSL],
 link:https://godbolt.org/z/7jKr5Pdqz[HLSL], and
@@ -25,7 +25,7 @@ uint count = payload.length();
 
 == When is OpArrayLength allowed
 
-There are few restrictions to `OpArrayLength`.
+There are a few restrictions to `OpArrayLength`.
 
 First, it must be used with a runtime array (`OpTypeRuntimeArray`). Shading languages can detect length of a static array already.
 

@@ -123,13 +123,13 @@ image::{images}descriptor_buffer_1.svg[descriptor_buffer_1.svg]
 
 == Creating Resources
 
-For this demo, we will create a couple of "normal" `VkBuffer` that we will use as our resources. These are small since all the descriptors in our shader as declared as `uint`.
+For this demo, we will create a couple of "normal" `VkBuffer` that we will use as our resources. These are small since all the descriptors in our shader are declared as `uint`.
 
 image::{images}descriptor_buffer_2.svg[descriptor_buffer_2.svg]
 
 == Mapping Resources to the Descriptor Buffer
 
-Using `vkGetDescriptorEXT` we find a spot in the "descriptor buffer" and map it you our resources.
+Using `vkGetDescriptorEXT` we find a spot in the "descriptor buffer" and map it to our resources.
 
 [NOTE]
 ====

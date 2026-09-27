@@ -33,7 +33,7 @@ A small bank of values writable via the API and accessible in shaders. Push cons
 [[pc-shader-code]]
 === Shader Code
 
-From a shader perspective, push constant are similar to a uniform buffer. The spec provides details for the link:https://docs.vulkan.org/spec/latest/chapters/interfaces.html#interfaces-resources-pushconst[push constant interface] between Vulkan and SPIR-V.
+From a shader perspective, push constants are similar to a uniform buffer. The spec provides details for the link:https://docs.vulkan.org/spec/latest/chapters/interfaces.html#interfaces-resources-pushconst[push constant interface] between Vulkan and SPIR-V.
 
 A simple GLSL fragment shader example (link:https://godbolt.org/z/93WaYd8dE[Try Online]):
 
@@ -73,7 +73,7 @@ it matches the link:https://docs.vulkan.org/spec/latest/chapters/interfaces.html
 [[pc-pipeline-layout]]
 === Pipeline layout
 
-When calling `vkCreatePipelineLayout` the link:https://www.khronos.org/registry/vulkan/specs/latest/man/html/VkPushConstantRange.html[push constant ranges] needs to be set in link:https://www.khronos.org/registry/vulkan/specs/latest/man/html/VkPipelineLayoutCreateInfo.html[VkPipelineLayoutCreateInfo].
+When calling `vkCreatePipelineLayout` the link:https://www.khronos.org/registry/vulkan/specs/latest/man/html/VkPushConstantRange.html[push constant ranges] need to be set in link:https://www.khronos.org/registry/vulkan/specs/latest/man/html/VkPipelineLayoutCreateInfo.html[VkPipelineLayoutCreateInfo].
 
 An example using the previous shader above:
 
@@ -209,14 +209,14 @@ vkCmdDispatch(); // valid
 [[pc-binding-non-compatible]]
 === Binding non-compatible pipelines
 
-The spec say:
+The spec says:
 
 [NOTE]
 ====
 Binding a pipeline with a layout that is not compatible with the push constant layout does not disturb the push constant values.
 ====
 
-The following examples helps illustrate this:
+The following examples help illustrate this:
 
 [source,cpp]
 ----

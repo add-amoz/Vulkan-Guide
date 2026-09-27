@@ -12,7 +12,7 @@ Buffer Device Address allows you to have a pointer to the `VkBuffer` in your sha
 
 [NOTE]
 ====
-This will be more of a technical breakdown of how it works, if you looking for a simple "how do I just use this", then please take a look at the link:https://github.com/KhronosGroup/Vulkan-Samples/tree/main/samples/extensions/buffer_device_address[Vulkan Samples].
+This will be more of a technical breakdown of how it works, if you are looking for a simple "how do I just use this", then please take a look at the link:https://github.com/KhronosGroup/Vulkan-Samples/tree/main/samples/extensions/buffer_device_address[Vulkan Samples].
 ====
 
 == Extension
@@ -31,7 +31,7 @@ If you are coming from DirectX, you will know the feature as `GPU virtual addres
 
 == Vulkan Side
 
-From the Vulkan code, the only 3 things you need to do is
+From the Vulkan code, the only 3 things you need to do are
 
 1. Enable the `bufferDeviceAddress` feature. (Also the extension if using Vulkan 1.0 or 1.1)
 2. Add `VK_BUFFER_USAGE_SHADER_DEVICE_ADDRESS_BIT_KHR` when creating your `VkBuffer`.
@@ -41,14 +41,14 @@ From here you can use the `vkGetBufferDeviceAddress` call and it will return a `
 
 [NOTE]
 ====
-For tools, the `vkGetBufferDeviceAddress` function might break assumptions that Vulkan function only return `void` or `VkResult`
+For tools, the `vkGetBufferDeviceAddress` function might break assumptions that Vulkan functions only return `void` or `VkResult`
 ====
 
 == SPIR-V Side
 
 [NOTE]
 ====
-If you are using GLSL/HLSL/Slang/etc then the following is all taken care for you!
+If you are using GLSL/HLSL/Slang/etc then the following is all taken care of for you!
 ====
 
 === Capability
@@ -57,17 +57,17 @@ The SPIR-V will contain the `OpCapability PhysicalStorageBufferAddresses` instru
 
 === Addressing Model
 
-SPIR-V has an link:https://registry.khronos.org/SPIR-V/specs/unified1/SPIRV.html#Addressing_Model[Addressing Model] that has 3 group of options
+SPIR-V has an link:https://registry.khronos.org/SPIR-V/specs/unified1/SPIRV.html#Addressing_Model[Addressing Model] that has 3 groups of options
 
 1. `Logical` - this is what Vulkan 1.0 uses, it has no concept of pointers
-2. `Physical32`/`Physical64` - this for OpenCL
+2. `Physical32`/`Physical64` - this is for OpenCL
 3. `PhysicalStorageBuffer64` - this is what you will use if you are making use of Buffer Device Address
 
 === shaderInt64
 
 Since these `VkDeviceAddress` are represented as 64-bit integer pointers in your shader, you will likely want `shaderInt64` support for your device.
 
-Some device migth support `bufferDeviceAddress`, but not `shaderInt64`. The way around this situation is to make everything an `uvec2` (see link:https://github.com/KhronosGroup/GLSL/blob/main/extensions/ext/GLSL_EXT_buffer_reference_uvec2.txt[GL_EXT_buffer_reference_uvec2]).
+Some devices might support `bufferDeviceAddress`, but not `shaderInt64`. The way around this situation is to make everything an `uvec2` (see link:https://github.com/KhronosGroup/GLSL/blob/main/extensions/ext/GLSL_EXT_buffer_reference_uvec2.txt[GL_EXT_buffer_reference_uvec2]).
 
 === Alignment
 
@@ -75,7 +75,7 @@ See dedicated xref:{chapters}sparse_resources.adoc#sparse-resources[BDA Alignmen
 
 === Nullptr
 
-SPIR-V has a `OpConstantNull`, but that can't be used with `PhysicalStorageBuffer`. The way around this is to either convert the pointer to an integer with `OpConvertPtrToU` or to a `uvec2` with `OpBitcast`.
+SPIR-V has an `OpConstantNull`, but that can't be used with `PhysicalStorageBuffer`. The way around this is to either convert the pointer to an integer with `OpConvertPtrToU` or to a `uvec2` with `OpBitcast`.
 
 Vulkan defines the integer value of `0` to be null (as everyone would hopefully expect!).
 
@@ -163,7 +163,7 @@ You will see the following SPIR-V
 
 It is easy to think that this `OpLoad` here is dereferencing the pointer before we store into it.
 
-This assumption is wrong, and instead the `OpLoad` is loading the logical pointer from the `ubo`. The access chain is computing an offset from that to the physical pointer. From here, the `OpStore` access the right location in memory through the pointer.
+This assumption is wrong, and instead the `OpLoad` is loading the logical pointer from the `ubo`. The access chain is computing an offset from that to the physical pointer. From here, the `OpStore` accesses the right location in memory through the pointer.
 
 Therefore in the above example, there is only a write access to that memory.
 

@@ -18,11 +18,11 @@ link:https://github.com/KhronosGroup/GLSL/blob/master/extensions/ext/GL_EXT_nonu
 Presentation from Montreal Developer Day (link:https://www.youtube.com/watch?v=tXipcoeuNh4[video] and link:https://www.khronos.org/assets/uploads/developers/library/2018-vulkan-devday/10-DescriptorIndexing.pdf[slides])
 ====
 
-This extension was designed to be broken down into a few different, smaller features to allow implementations to add support for the each feature when possible.
+This extension was designed to be broken down into a few different, smaller features to allow implementations to add support for each feature when possible.
 
 == Update after Bind
 
-Without this extension, descriptors in an application are not allowed to update between recording the command buffer and the execution of the command buffers. With this extension an application can querying for `descriptorBinding*UpdateAfterBind` support for the type of descriptor being used which allows an application to then update in between recording and execution.
+Without this extension, descriptors in an application are not allowed to update between recording the command buffer and the execution of the command buffers. With this extension an application can query for `descriptorBinding*UpdateAfterBind` support for the type of descriptor being used which allows an application to then update in between recording and execution.
 
 [NOTE]
 .Example
@@ -51,7 +51,7 @@ An example would be if an application's GLSL has
 layout(set = 0, binding = 0) uniform sampler2D textureSampler[64];
 ----
 
-but only binds the first 32 slots in the array. This also relies on the the application knowing that it will not index into the unbound slots in the array.
+but only binds the first 32 slots in the array. This also relies on the application knowing that it will not index into the unbound slots in the array.
 
 == Dynamic Indexing
 
@@ -77,7 +77,7 @@ void main() {
 }
 ----
 
-This example is "`dynamic`" as it is will not be known until runtime what the value of `ubo.textureId` is. This is also "`uniform`" as all invocations will use `ubo.textureId` in this shader.
+This example is "`dynamic`" as it will not be known until runtime what the value of `ubo.textureId` is. This is also "`uniform`" as all invocations will use `ubo.textureId` in this shader.
 
 == Dynamic Non-Uniform Indexing
 
@@ -109,4 +109,4 @@ void main() {
 }
 ----
 
-This example is non-uniform as some invocations index a `mySampler[0]` and some at `mySampler[1]`. The `nonuniformEXT()` is needed in this case.
+This example is non-uniform as some invocations index `mySampler[0]` and some at `mySampler[1]`. The `nonuniformEXT()` is needed in this case.

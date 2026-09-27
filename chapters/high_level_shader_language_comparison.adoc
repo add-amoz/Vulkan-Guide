@@ -679,7 +679,7 @@ VSOutput main(VSInput input) {
 
 ==== Passing data between stages
 
-E.g. for vertex and tessellations shaders.
+E.g. for vertex and tessellation shaders.
 
 ===== GLSL
 
@@ -1075,7 +1075,7 @@ ConstantBuffer<SBT> sbt;
 | rayPayloadInEXT (storage qualifier) | First argument for main entry of any hit, closest hit and miss stage |
 | hitAttributeEXT (storage qualifier) | Last argument of ReportHit |
 | callableDataEXT (storage qualifier) | Last argument of CallShader |
-| callableDataInEXT (storage qualifier) | First argument for main entry of callabe stage |
+| callableDataInEXT (storage qualifier) | First argument for main entry of callable stage |
 | gl_LaunchIDEXT | DispatchRaysIndex |
 | gl_LaunchSizeEXT | DispatchRaysDimensions |
 | gl_PrimitiveID | PrimitiveIndex |
@@ -1542,7 +1542,7 @@ Most GLSL functions are also available in HLSL and vice-versa. This chapter list
 Slang supports all the same intrinsic functions as HLSL, with identical names. Additionally, Slang allows you to define your own generic functions that can work with multiple types and supports operator overloading and custom function definitions within interfaces.
 ====
 
-* link:https://learn.microsoft.com/en-us/windows/win32/direct3dhlsl/dx-graphics-hlsl-intrinsic-functions[HLSL intrinsic function (Microsoft)]
+* link:https://learn.microsoft.com/en-us/windows/win32/direct3dhlsl/dx-graphics-hlsl-intrinsic-functions[HLSL intrinsic functions (Microsoft)]
 * link:https://registry.khronos.org/OpenGL-Refpages/gl4/index.php[OpenGL reference pages]
 * link:https://github.com/shader-slang/spec[Slang Language Reference]
 

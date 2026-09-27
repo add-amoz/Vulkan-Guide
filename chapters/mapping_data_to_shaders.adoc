@@ -35,7 +35,7 @@ In core Vulkan, there are 5 fundamental ways to map data from your Vulkan applic
 [[input-attributes]]
 == Input Attributes
 
-The only shader stage in core Vulkan that has an input attribute controlled by Vulkan is the vertex shader stage (`VK_SHADER_STAGE_VERTEX_BIT`). This involves declaring the interface slots when creating the `VkPipeline` and then binding the `VkBuffer` before draw time with the data to map. Other shaders stages, such as a fragment shader stage, has input attributes, but the values are determined from the output of the previous stages ran before it.
+The only shader stage in core Vulkan that has an input attribute controlled by Vulkan is the vertex shader stage (`VK_SHADER_STAGE_VERTEX_BIT`). This involves declaring the interface slots when creating the `VkPipeline` and then binding the `VkBuffer` before draw time with the data to map. Other shader stages, such as a fragment shader stage, have input attributes, but the values are determined from the output of the previous stages ran before it.
 
 Before calling `vkCreateGraphicsPipelines` a `VkPipelineVertexInputStateCreateInfo` struct will need to be filled out with a list of `VkVertexInputAttributeDescription` mappings to the shader.
 
@@ -175,7 +175,7 @@ vkCmdDraw(); // or dispatch
 vkEndCommandBuffer();
 ----
 
-The following results would look as followed
+The following results would look as follows
 
 image::{images}mapping_data_to_shaders_descriptor_2.png[mapping_data_to_shaders_descriptor_2.png]
 
@@ -480,7 +480,7 @@ link:https://docs.vulkan.org/spec/latest/chapters/pipelines.html#pipelines-speci
 
 === Example
 
-If an application wants to create to `VkPipeline` where the color value is different for each, a naive approach is to have two shaders:
+If an application wants to create two `VkPipeline` where the color value is different for each, a naive approach is to have two shaders:
 
 [source,glsl]
 ----
@@ -569,7 +569,7 @@ The typical use cases for specialization constants can be best grouped into thre
   * Toggling features
   ** Support for a feature in Vulkan isn't known until runtime. This usage of specialization constants is to prevent writing two separate shaders, but instead embedding a constant runtime decision.
   * Improving backend optimizations
-  ** The "`backend`" here refers the implementation's compiler that takes the resulting SPIR-V and lowers it down to some ISA to run on the device.
+  ** The "`backend`" here refers to the implementation's compiler that takes the resulting SPIR-V and lowers it down to some ISA to run on the device.
   ** Constant values allow a set of optimizations such as link:https://en.wikipedia.org/wiki/Constant_folding[constant folding], link:https://en.wikipedia.org/wiki/Dead_code_elimination[dead code elimination], etc. to occur.
   * Affecting types and memory sizes
   ** It is possible to set the length of an array or a variable type used through a specialization constant.

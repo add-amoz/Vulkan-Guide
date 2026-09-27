@@ -21,7 +21,7 @@ image::{images}extensions/VK_EXT_memory_priority_app.png[VK_EXT_memory_priority_
 
 As we can see, there was some memory the application felt was more important to always attempt to keep in fast memory.
 
-The `VK_EXT_memory_priority` extension makes this very easy. When allocating memory, an application just needs to add `VkMemoryPriorityAllocateInfoEXT` to `VkMemoryAllocateInfo::pNext`. From here the `VkMemoryPriorityAllocateInfoEXT::priority` value can be set with a value between `0.0` and `1.0` (where `0.5`) is the default. This allows the application to help the implementation make a better guess if the above situation occurs.
+The `VK_EXT_memory_priority` extension makes this very easy. When allocating memory, an application just needs to add `VkMemoryPriorityAllocateInfoEXT` to `VkMemoryAllocateInfo::pNext`. From here the `VkMemoryPriorityAllocateInfoEXT::priority` value can be set with a value between `0.0` and `1.0` (where `0.5` is the default). This allows the application to help the implementation make a better guess if the above situation occurs.
 
 == Suggestions
 

@@ -8,7 +8,7 @@ ifndef::images[:images: images/]
 [[querying-extensions-features]]
 = Querying Properties, Extensions, Features, Limits, and Formats
 
-One of Vulkan's main features is that is can be used to develop on multiple platforms and devices. To make this possible, an application is responsible for querying the information from each physical device and then basing decisions on this information.
+One of Vulkan's main features is that it can be used to develop on multiple platforms and devices. To make this possible, an application is responsible for querying the information from each physical device and then basing decisions on this information.
 
 The items that can be queried from a physical device
 
@@ -37,7 +37,7 @@ There are many times when a set of new functionality is desired in Vulkan that d
 
 [NOTE]
 ====
-Checkout the xref:{chapters}enabling_features.adoc#enabling-features[Enabling Features] chapter for more information.
+Check out the xref:{chapters}enabling_features.adoc#enabling-features[Enabling Features] chapter for more information.
 ====
 
 Features describe functionality which is not supported on all implementations. Features can be link:https://docs.vulkan.org/spec/latest/chapters/features.html#vkGetPhysicalDeviceFeatures[queried] and then enabled when creating the `VkDevice`. Besides the link:https://docs.vulkan.org/spec/latest/chapters/features.html[list of all features], some link:https://docs.vulkan.org/spec/latest/chapters/features.html#features-requirements[features are mandatory] due to newer Vulkan versions or use of extensions.
@@ -50,9 +50,9 @@ Limits are implementation-dependent minimums, maximums, and other device charact
 
 == Formats
 
-Vulkan provides many `VkFormat` that have multiple `VkFormatFeatureFlags` each holding a various link:https://registry.khronos.org/vulkan/specs/latest/man/html/VkFormatFeatureFlagBits.html[VkFormatFeatureFlagBits] bitmasks that can be queried.
+Vulkan provides many `VkFormat` that have multiple `VkFormatFeatureFlags` each holding various link:https://registry.khronos.org/vulkan/specs/latest/man/html/VkFormatFeatureFlagBits.html[VkFormatFeatureFlagBits] bitmasks that can be queried.
 
-Checkout the xref:{chapters}formats.adoc#feature-support[Format chapter] for more information.
+Check out the xref:{chapters}formats.adoc#feature-support[Format chapter] for more information.
 
 == Tools
 

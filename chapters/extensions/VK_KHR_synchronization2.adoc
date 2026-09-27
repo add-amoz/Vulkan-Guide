@@ -108,7 +108,7 @@ The `VK_PIPELINE_STAGE_TRANSFER_BIT` (now `VK_PIPELINE_STAGE_2_ALL_TRANSFER_BIT_
 
 === Splitting up VK_ACCESS_SHADER_READ_BIT
 
-The `VK_ACCESS_SHADER_READ_BIT` (now `VK_ACCESS_2_SHADER_READ_BIT_KHR`) was split into 3 new access flags which specify a dedicated access for the various case instead of having them combined into a single access flag.
+The `VK_ACCESS_SHADER_READ_BIT` (now `VK_ACCESS_2_SHADER_READ_BIT_KHR`) was split into 3 new access flags which specify a dedicated access for the various cases instead of having them combined into a single access flag.
 
   * `VK_ACCESS_2_UNIFORM_READ_BIT_KHR`
   * `VK_ACCESS_2_SHADER_SAMPLED_READ_BIT_KHR`
@@ -116,7 +116,7 @@ The `VK_ACCESS_SHADER_READ_BIT` (now `VK_ACCESS_2_SHADER_READ_BIT_KHR`) was spli
 
 === Combining shader stages for pre-rasterization
 
-Besides splitting up flags, the `VK_PIPELINE_STAGE_2_PRE_RASTERIZATION_SHADERS_BIT_KHR` was added to combine shader stages that occurs before rasterization in a single, convenient flag.
+Besides splitting up flags, the `VK_PIPELINE_STAGE_2_PRE_RASTERIZATION_SHADERS_BIT_KHR` was added to combine shader stages that occur before rasterization in a single, convenient flag.
 
 == VK_ACCESS_SHADER_WRITE_BIT alias
 
@@ -124,7 +124,7 @@ The `VK_ACCESS_SHADER_WRITE_BIT` (now `VK_ACCESS_2_SHADER_WRITE_BIT_KHR`) was gi
 
 == TOP_OF_PIPE and BOTTOM_OF_PIPE deprecation
 
-The use of `VK_PIPELINE_STAGE_TOP_OF_PIPE_BIT` and `VK_PIPELINE_STAGE_BOTTOM_OF_PIPE_BIT` are now deprecated and updating is simple as following the following 4 case with the new equivalents.
+The use of `VK_PIPELINE_STAGE_TOP_OF_PIPE_BIT` and `VK_PIPELINE_STAGE_BOTTOM_OF_PIPE_BIT` are now deprecated and updating is as simple as following the following 4 cases with the new equivalents.
 
   * `VK_PIPELINE_STAGE_TOP_OF_PIPE_BIT` in first synchronization scope
 +
@@ -178,7 +178,7 @@ The use of `VK_PIPELINE_STAGE_TOP_OF_PIPE_BIT` and `VK_PIPELINE_STAGE_BOTTOM_OF_
 
 `VK_KHR_synchronization2` adds 2 new image layouts `VK_IMAGE_LAYOUT_ATTACHMENT_OPTIMAL_KHR` and `VK_IMAGE_LAYOUT_READ_ONLY_OPTIMAL_KHR` to help with making layout transition easier.
 
-The following uses the example of doing a draw thats writes to both a color attachment and depth/stencil attachment which then are both sampled in the next draw. Prior a developer needed to make sure they matched up the layouts and access mask correctly such as the following:
+The following uses the example of doing a draw that writes to both a color attachment and depth/stencil attachment which then are both sampled in the next draw. Prior a developer needed to make sure they matched up the layouts and access mask correctly such as the following:
 
 [source,cpp]
 ----
@@ -231,7 +231,7 @@ VkImageMemoryBarrier depthStencilImageMemoryBarrier = {
 
 == New submission flow
 
-`VK_KHR_synchronization2` adds the `vkQueueSubmit2KHR` command which main goal is to clean up the syntax for the function to wrap command buffers and semaphores in extensible structures, which incorporate changes from Vulkan 1.1, `VK_KHR_device_group`, and `VK_KHR_timeline_semaphore`.
+`VK_KHR_synchronization2` adds the `vkQueueSubmit2KHR` command whose main goal is to clean up the syntax for the function to wrap command buffers and semaphores in extensible structures, which incorporate changes from Vulkan 1.1, `VK_KHR_device_group`, and `VK_KHR_timeline_semaphore`.
 
 Taking the following example of a normal queue submission call
 
@@ -307,7 +307,7 @@ VkCommandBufferSubmitInfoKHR = commandBufferSubmitInfos[8] {
 };
 
 VkSubmitInfo2KHR submitInfo = {
-    .pNext = nullptr, // All 3 struct above are built into VkSubmitInfo2KHR
+    .pNext = nullptr, // All 3 structs above are built into VkSubmitInfo2KHR
     .flags = VK_SUBMIT_PROTECTED_BIT_KHR, // also can be zero, replaces VkProtectedSubmitInfo
     .waitSemaphoreInfoCount = 1,
     .pWaitSemaphoreInfos = waitSemaphoreSubmitInfo,
@@ -320,7 +320,7 @@ VkSubmitInfo2KHR submitInfo = {
 vkQueueSubmit2KHR(queue, 1, submitInfo, fence);
 ----
 
-The difference between the two examples code snippets above is that the `vkQueueSubmit2KHR` will signal `VkSemaphore signalSemaphore` when the vertex shader stage is complete compared to the `vkQueueSubmit` call which will wait until the end of the submission.
+The difference between the two example code snippets above is that the `vkQueueSubmit2KHR` will signal `VkSemaphore signalSemaphore` when the vertex shader stage is complete compared to the `vkQueueSubmit` call which will wait until the end of the submission.
 
 To emulate the same behavior of semaphore signaling from `vkQueueSubmit` in `vkQueueSubmit2KHR` the `stageMask` can be set to `VK_PIPELINE_STAGE_2_ALL_COMMANDS_BIT`
 

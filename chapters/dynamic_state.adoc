@@ -79,7 +79,7 @@ vkEndCommandBuffer();
 
 [NOTE]
 ====
-Vulkan is a tool, so as with most things, and there is no single answer for this.
+Vulkan is a tool, so as with most things, there is no single answer for this.
 ====
 
 Some implementations might have a performance loss using some certain `VkDynamicState` state over a static value, but dynamic states might prevent an application from having to create many permutations of pipeline objects which might be a bigger desire for the application.

@@ -13,13 +13,13 @@ The goal here is **not** to show a real example or recommended usage, but instea
 
 == What is a descriptor
 
-A "descriptor" is just small, opaque, data structure that describes how to access the data for your link:https://docs.vulkan.org/spec/latest/chapters/interfaces.html#interfaces-resources[resource variables] in your shader.
+A "descriptor" is just a small, opaque, data structure that describes how to access the data for your link:https://docs.vulkan.org/spec/latest/chapters/interfaces.html#interfaces-resources[resource variables] in your shader.
 
 This data structure is defined internally by a driver. Prior to `VK_EXT_descriptor_buffer`/`VK_EXT_descriptor_heap` this was abstracted away, but now the application has full control to manage these "descriptor" data structures.
 
 As an example, for some drivers a `VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER` descriptor is just 16 bytes of data. These 16 bytes for the "descriptor" might encode the virtual address, stride and other meta data in order to read the uniform buffer in the shader.
 
-Here is a example of what a "descriptor" could look like:
+Here is an example of what a "descriptor" could look like:
 
 [source,c++]
 ----
@@ -40,7 +40,7 @@ image::{images}descriptor_heap_descriptor_example.svg[descriptor_heap_descriptor
 
 In this image each `Descriptor Blob` is just an indirection pointing to where in the `VkBuffer` the shader will access memory.
 
-In Vulkan 1.0, the application was not even aware of these "descriptor blobs", but with `VK_EXT_descriptor_heap`, the application are now given, and incharge of managing, these "descriptor blobs" to make sure they are in the right spot of memory for the shader to access.
+In Vulkan 1.0, the application was not even aware of these "descriptor blobs", but with `VK_EXT_descriptor_heap`, the application is now given, and in charge of managing, these "descriptor blobs" to make sure they are in the right spot of memory for the shader to access.
 
 == How do we get the descriptor binary blob
 
@@ -80,11 +80,11 @@ There are 3 ways to copy the descriptors into the heap memory:
 
 1. If your heap memory is host visible, then using `vkMapMemory()` on the heap, the descriptors can be copied with a simple `memcpy()`.
 2. If your heap memory is host visible, set the `vkWriteResourceDescriptorsEXT() pDescriptors->address` to point directly to the descriptor heap.
-3. The descriptors can also be transfered on the GPU. This could be done with something like `vkCmdCopyBuffer()` or even writting it from inside a shader directly.
+3. The descriptors can also be transferred on the GPU. This could be done with something like `vkCmdCopyBuffer()` or even writing it from inside a shader directly.
 
 [NOTE]
 ====
-Make sure if writing to the heap on the GPU, prior to reading descriptors from the heap on the GPU, to properly synchronized with `VK_ACCESS_2_RESOURCE_HEAP_READ_BIT_EXT` or `VK_ACCESS_2_SAMPLER_HEAP_READ_BIT_EXT`.
+Make sure if writing to the heap on the GPU, prior to reading descriptors from the heap on the GPU, to properly synchronize with `VK_ACCESS_2_RESOURCE_HEAP_READ_BIT_EXT` or `VK_ACCESS_2_SAMPLER_HEAP_READ_BIT_EXT`.
 ====
 
 [[descriptor-heap-size]]
@@ -104,7 +104,7 @@ For example, if a driver needs `16` bytes for a Uniform Buffer, but `32` bytes f
 
 == Binding to the Command Buffer
 
-When recording the `vkCommandBuffer` we need an equivalent to `vkCmdBindDescriptorSets()` (or `vkCmdBindDescriptorBuffersEXT()`).
+When recording the `VkCommandBuffer` we need an equivalent to `vkCmdBindDescriptorSets()` (or `vkCmdBindDescriptorBuffersEXT()`).
 
 There are 2 basically identical calls, one for each heap - `vkCmdBindSamplerHeapEXT()` and `vkCmdBindResourceHeapEXT()`
 
@@ -146,7 +146,7 @@ When you call `vkCmdBindResourceHeapEXT()` multiple times in a command buffer, t
 
 The goal of `VK_EXT_descriptor_heap` is that now the application knows where the heap is bound, it can copy the memory to the correct offset in the heap.
 
-== Mapping the Heap to exisiting shaders
+== Mapping the Heap to existing shaders
 
 To allow applications to easily transition to using `VK_EXT_descriptor_heap`, no shaders have to be modified to use it.
 
@@ -156,7 +156,7 @@ This mapping is provided at `vkCreate*Pipelines()` or `vkCreateShadersEXT()` tim
 
 === VkDescriptorMappingSourceEXT
 
-The first time you look at `VkDescriptorMappingSourceEXT` and all the options, it can be bit overwhelming. It is best to mentally categorize them into 3 types:
+The first time you look at `VkDescriptorMappingSourceEXT` and all the options, it can be a bit overwhelming. It is best to mentally categorize them into 3 types:
 
 * **Heap Access**
 ** VK_DESCRIPTOR_MAPPING_SOURCE_**HEAP**_WITH_CONSTANT_OFFSET_EXT
@@ -185,7 +185,7 @@ image::{images}descriptor_heap_sample_heap.svg[descriptor_heap_sample_heap.svg]
 
 [NOTE]
 ====
-The fact that both the descriptor and the uvec4 are both are 16 bytes is just a coincidence. Real applications would not only bind 16 bytes of memory per descriptor as that would be wasteful.
+The fact that both the descriptor and the uvec4 are both 16 bytes is just a coincidence. Real applications would not only bind 16 bytes of memory per descriptor as that would be wasteful.
 ====
 
 From here, our shader will attempt to read from 2 descriptors from an array:
@@ -272,12 +272,12 @@ u_buffers[1] offset = 0x00 + (2 * 0x10)
 
 For these mappings, it is similar to xref:{chapters}extensions/VK_EXT_inline_uniform_block.adoc#VK_EXT_inline_uniform_block[VK_EXT_inline_uniform_block] where the data is read without a descriptor.
 
-There 2 main restrictions are
+The 2 main restrictions are
 
-1. There is no descriptors arrays allowed (because there is no defined math how that would work).
+1. There are no descriptor arrays allowed (because there is no defined math how that would work).
 2. The descriptor types are limited (images and samplers are not allowed)
 
-The the following examples, the new shader code looks like:
+For the following examples, the new shader code looks like:
 
 [source,glsl]
 ----
@@ -299,11 +299,11 @@ image::{images}descriptor_heap_resource_heap_data.svg[descriptor_heap_resource_h
 
 The results are: `x == vec4(2)` and `y == vec4(3)`
 
-The the `pushOffset = 12` gets the offset `0x10` which is applied to the `heapOffset` of `0x80` to make a final offset of `0x90`
+The `pushOffset = 12` gets the offset `0x10` which is applied to the `heapOffset` of `0x80` to make a final offset of `0x90`
 
-From an offset of `0x90` the remaining offsets depends on where the shader accesses into `u_buffer`.
+From an offset of `0x90` the remaining offsets depend on where the shader accesses into `u_buffer`.
 
-Since `payload[1]` is has a 16 (0x10) byte offset into the `u_buffer` struct, it effectively is grabbing `0x90 + 0x10` here.
+Since `payload[1]` has a 16 (0x10) byte offset into the `u_buffer` struct, it effectively is grabbing `0x90 + 0x10` here.
 
 [NOTE]
 ====
@@ -351,7 +351,7 @@ Only Uniform Buffers, Storage Buffers, and Acceleration Structures are allowed f
 
 === VkDescriptorMappingSourceEXT Shader Record
 
-A `Shader Record`` refers to an entry in the link:https://docs.vulkan.org/spec/latest/chapters/raytracing.html#shader-binding-table[Shader Binding Table (SBT)]
+A `Shader Record` refers to an entry in the link:https://docs.vulkan.org/spec/latest/chapters/raytracing.html#shader-binding-table[Shader Binding Table (SBT)]
 [NOTE]
 
 The mappings work the exact same, just instead of mapping to a descriptor, such as a buffer/image/accelerationStructure, it maps to a shader record.
@@ -404,7 +404,7 @@ The above usage of `VkShaderDescriptorSetAndBindingMappingInfoEXT` was designed 
 
 There is also a new "untyped" way to use `VK_EXT_descriptor_heap`. The word "untyped" refers to using the link:https://github.com/KhronosGroup/SPIRV-Guide/blob/main/chapters/untyped_pointers.md[VK_KHR_shader_untyped_pointers] extension to have "untyped pointers" to the descriptors.
 
-> "Untyped" is not the official spec term. There is a new link:https://github.com/KhronosGroup/SPIRV-Guide/blob/main/chapters/descriptor_heap.md[SPV_EXT_descriptor_heap] extension that provides these heaps in SPIR-V, but to access them, you need to use SPIR-V untyped pointers. You could use `SPV_KHR_untyped_pointers` without `SPV_EXT_descriptor_heap` but it is not very uncommon.
+> "Untyped" is not the official spec term. There is a new link:https://github.com/KhronosGroup/SPIRV-Guide/blob/main/chapters/descriptor_heap.md[SPV_EXT_descriptor_heap] extension that provides these heaps in SPIR-V, but to access them, you need to use SPIR-V untyped pointers. You could use `SPV_KHR_untyped_pointers` without `SPV_EXT_descriptor_heap` but it is not very common.
 
 Using this GLSL as an example:
 
@@ -463,7 +463,7 @@ As <<descriptor-heap-size, mentioned above>>, descriptors will have different si
 
 [NOTE]
 ====
-If coming from DX12/HLSL, all the descriptor array are the same size, while this may be a bit more convenient, it is much more wasteful of memory.
+If coming from DX12/HLSL, all the descriptor arrays are the same size, while this may be a bit more convenient, it is much more wasteful of memory.
 ====
 
 [source,glsl]
@@ -480,7 +480,7 @@ layout(descriptor_heap) buffer ssbo {
 } Buffers[];
 ----
 
-Here if we would access `Samplers[3]`, `Textures[3]`, or `Buffer[3]` the offset from the heap starting address can be different.
+Here if we would access `Samplers[3]`, `Textures[3]`, or `Buffers[3]` the offset from the heap starting address can be different.
 
 In this example if the descriptor sizes are:
 
@@ -531,7 +531,7 @@ image::{images}descriptor_heap_stride_alignment.svg[descriptor_heap_stride_align
 
 Some mappings have an "indirect" Uniform buffer used.
 
-At first, you might think these access need to be aligned to `minUniformBufferOffsetAlignment`, but since these are being accessed as "indirect buffers" and not a "descriptor" they follow scalar alignment rules.
+At first, you might think these accesses need to be aligned to `minUniformBufferOffsetAlignment`, but since these are being accessed as "indirect buffers" and not a "descriptor" they follow scalar alignment rules.
 
 - `VK_DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_INDIRECT_INDEX_EXT`/`VK_DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_INDIRECT_INDEX_ARRAY_EXT` will load a `uint32_t` offset. Needs to be aligned to 4 bytes.
 - `VK_DESCRIPTOR_MAPPING_SOURCE_INDIRECT_ADDRESS_EXT` will load a `VkDeviceAddress` to the final descriptor. Needs to be aligned to 8 bytes.
@@ -542,7 +542,7 @@ image::{images}descriptor_heap_indirect_alignment.svg[descriptor_heap_indirect_a
 
 both `0x4000` and `0x4008` are aligned to 8 bytes which is valid. If it was `0x4004` that would be invalid.
 
-The final address (`0x8000` and `0x8040`) need to be aligned to `minUniformBufferOffsetAlignment` as it accesses that memory as an Uniform Buffer Descriptor.
+The final addresses (`0x8000` and `0x8040`) need to be aligned to `minUniformBufferOffsetAlignment` as it accesses that memory as a Uniform Buffer Descriptor.
 
 == Null Descriptors
 
@@ -570,7 +570,7 @@ desc_info.data.pAddressRange = nullptr;
 vkWriteResourceDescriptorsEXT(device, 1, &desc_info, &host_range);
 ----
 
-From here you can put the `host_data` instead your descriptor heap.
+From here you can put the `host_data` into your descriptor heap.
 
 [NOTE]
 ====
@@ -579,11 +579,11 @@ On some hardware, the null descriptor is just all zeros, but this is **not** alw
 
 == Combined Image Samplers
 
-The `VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER` is a special descriptor and deserves it's own mention if you are planning to use it with `VK_EXT_descriptor_heap`.
+The `VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER` is a special descriptor and deserves its own mention if you are planning to use it with `VK_EXT_descriptor_heap`.
 
 The main issue is the "single descriptor" needs to both belong in the Resource heap (for the sampled image) and the Sampler heap (for the sampler).
 
-This means for the untyped pointer model, it is not possible at all to use a combined image sampler. This would require some way to set the array stride separately for both the sampled image and sampler, which was actively decided to not support. Therefor, if you want to tranisition to using untyped pointers, you will need to use seperate sampled images and samplers.
+This means for the untyped pointer model, it is not possible at all to use a combined image sampler. This would require some way to set the array stride separately for both the sampled image and sampler, which was actively decided to not support. Therefore, if you want to transition to using untyped pointers, you will need to use separate sampled images and samplers.
 
 If you are using the binding mappings, you will see the `samplerHeapOffset` and `samplerHeapArrayStride` which allow you to bind the sampler portion.
 

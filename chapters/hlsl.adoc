@@ -19,7 +19,7 @@ image::{images}what_is_spirv_dxc.png[what_is_spriv_dxc.png]
 [[educational-resources]]
 == Educational resources
 
-If you are new to HLSL, a good starting point are the HLSL resources over at link:https://learn.microsoft.com/en-us/windows/win32/direct3dhlsl/dx-graphics-hlsl[Microsoft Learn]. Another great source is the link:https://microsoft.github.io/DirectX-Specs/[DirectX-Specs document]. It contains valuable information on recent shader features and HLSL's shader models.
+If you are new to HLSL, a good starting point is the HLSL resources over at link:https://learn.microsoft.com/en-us/windows/win32/direct3dhlsl/dx-graphics-hlsl[Microsoft Learn]. Another great source is the link:https://microsoft.github.io/DirectX-Specs/[DirectX-Specs document]. It contains valuable information on recent shader features and HLSL's shader models.
 
 == Why Use HLSL for Vulkan?
 
@@ -178,14 +178,14 @@ A great starting point on using HLSL in Vulkan via SPIR-V is the link:https://gi
 
 [[vk-namespace]]
 == The Vulkan HLSL namespace
-To make HLSL compatible with Vulkan, an link:https://github.com/microsoft/DirectXShaderCompiler/blob/main/docs/SPIR-V.rst#the-implicit-vk-namespace)[implicit namespace] has been introduced that provides an interface for for Vulkan-specific features.
+To make HLSL compatible with Vulkan, an link:https://github.com/microsoft/DirectXShaderCompiler/blob/main/docs/SPIR-V.rst#the-implicit-vk-namespace)[implicit namespace] has been introduced that provides an interface for Vulkan-specific features.
 
 [[syntax-comparison]]
 == Syntax comparison
 
 Similar to regular programming languages, HLSL and GLSL differ in their syntax. While GLSL is more procedural (like C), HLSL is more object-oriented (like C++).
 
-Here is the same shader written in both languages to give quick comparison on how they basically differ, including the aforementioned namespace that e.g. adds explicit locations:
+Here is the same shader written in both languages to give a quick comparison on how they basically differ, including the aforementioned namespace that e.g. adds explicit locations:
 
 === GLSL
 link:https://godbolt.org/z/jcPofTK9j[Try Online]
@@ -251,7 +251,7 @@ Aside from the syntax differences, built-ins use HLSL names. E.g. `gl_vertex` be
 [[DirectXShaderCompiler]]
 == DirectXShaderCompiler (DXC)
 
-As is the case with GLSL to SPIR-V, to use HLSL with Vulkan, a shader compiler is required. Whereas link:https://github.com/KhronosGroup/glslang[glslang] is the reference GLSL to SPIR-V compiler, the link:https://github.com/microsoft/DirectXShaderCompiler[DirectXShaderCompiler] (DXC) is the reference HLSL to SPIR-V compiler. Thanks to open source contributions, the SPIR-V backend of DXC is now supported and enabled in official release builds and can be used out-of-the box. While other shader compiling tools like link:https://github.com/KhronosGroup/glslang/wiki/HLSL-FAQ[glslang] also offer HLSL support, DXC has the most complete and up-to-date support and is the recommended way of generating SPIR-V from HLSL.
+As is the case with GLSL to SPIR-V, to use HLSL with Vulkan, a shader compiler is required. Whereas link:https://github.com/KhronosGroup/glslang[glslang] is the reference GLSL to SPIR-V compiler, the link:https://github.com/microsoft/DirectXShaderCompiler[DirectXShaderCompiler] (DXC) is the reference HLSL to SPIR-V compiler. Thanks to open source contributions, the SPIR-V backend of DXC is now supported and enabled in official release builds and can be used out-of-the-box. While other shader compiling tools like link:https://github.com/KhronosGroup/glslang/wiki/HLSL-FAQ[glslang] also offer HLSL support, DXC has the most complete and up-to-date support and is the recommended way of generating SPIR-V from HLSL.
 
 
 === Where to get
@@ -441,7 +441,7 @@ When compiling HLSL with DXC you need to select a target shader profile. The nam
 
 |===
 
-So if you for example you want to compile a compute shader targeting shader model 6.6 features, the target shader profile would be `cs_6_6`. For a ray tracing any hit shader it would be `lib_6_3`.
+So if for example you want to compile a compute shader targeting shader model 6.6 features, the target shader profile would be `cs_6_6`. For a ray tracing any hit shader it would be `lib_6_3`.
 
 == Shader model coverage
 

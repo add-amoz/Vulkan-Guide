@@ -14,7 +14,7 @@ Vulkan offers two types of descriptors that allow adjusting the offset at bind t
 
 == Example
 
-This example will have buffer of 32 bytes and 16 of the bytes will be set at `vkUpdateDescriptorSets` time. In this first example, we will not add any dynamic offset.
+This example will have a buffer of 32 bytes and 16 of the bytes will be set at `vkUpdateDescriptorSets` time. In this first example, we will not add any dynamic offset.
 
 [source,c]
 ----
@@ -51,7 +51,7 @@ Our buffer now currently looks like the following:
 
 image::{images}descriptor_dynamic_offset_example_a.png[descriptor_dynamic_offset_example_a.png]
 
-Next, a 8 byte dynamic offset will applied at bind time.
+Next, an 8 byte dynamic offset will be applied at bind time.
 
 [source,c]
 ----

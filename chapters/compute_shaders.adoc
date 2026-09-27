@@ -80,7 +80,7 @@ The `vkCmdDispatchIndirect` (and newer `vkCmdDispatchIndirect2KHR`) allow the si
 
 [source,glsl]
 ----
-// or any other draw/dispath that will update the memory on the GPU
+// or any other draw/dispatch that will update the memory on the GPU
 vkCmdDispatch();
 
 vkCmdPipelineBarrier(

@@ -80,7 +80,7 @@ Some applications, such as those being ported from other APIs such as D3D12, req
 
 The link:https://docs.vulkan.org/spec/latest/chapters/features.html#features-robustBufferAccess2[robustBufferAccess2] feature can be seen as a superset of `robustBufferAccess`.
 
-With the feature enabled, it prevents all out-of-bounds writes and atomic from modifying any memory backing buffers. The `robustBufferAccess2` feature also enforces the values that must be returned for the various types of buffers when accessed out-of-bounds as link:https://docs.vulkan.org/spec/latest/chapters/features.html#features-robustBufferAccess[described in the spec].
+With the feature enabled, it prevents all out-of-bounds writes and atomics from modifying any memory backing buffers. The `robustBufferAccess2` feature also enforces the values that must be returned for the various types of buffers when accessed out-of-bounds as link:https://docs.vulkan.org/spec/latest/chapters/features.html#features-robustBufferAccess[described in the spec].
 
 It is important to query the `robustUniformBufferAccessSizeAlignment` and `robustStorageBufferAccessSizeAlignment` from link:https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceRobustness2PropertiesEXT.html[VkPhysicalDeviceRobustness2PropertiesEXT] as the alignment of where buffers are bound-checked is different between implementations.
 

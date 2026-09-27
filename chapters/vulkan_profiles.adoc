@@ -14,7 +14,7 @@ For detailed information, refer to the link:https://vulkan.lunarg.com/doc/sdk/la
 
 == What are Vulkan Profiles?
 
-A Vulkan Profile is a well-defined set of capabilities, (features, extensions, formats, queue families, etc.) that can be used as a baseline for application development. Profiles are defined in JSON format and can be used to:
+A Vulkan Profile is a well-defined set of capabilities (features, extensions, formats, queue families, etc.) that can be used as a baseline for application development. Profiles are defined in JSON format and can be used to:
 
 * Simplify development by providing a known set of capabilities
 * Ensure compatibility across a range of devices
@@ -265,7 +265,7 @@ Vulkan Profiles can be applied for a multitude of use cases, including:
 * *Device profiles*: To express the Vulkan support of a single Vulkan driver on a Vulkan device.
 * *Architecture profiles*: To express the Vulkan support of a class of GPUs.
 * *Engine profiles*: To express some rendering code paths requirements of an engine.
-* *Drivers bugs profiles*: To express capabilities that can't be used by an application.
+* *Driver bugs profiles*: To express capabilities that can't be used by an application.
 
 These different types of profiles allow developers to target specific hardware configurations, platforms, or use cases, ensuring compatibility and optimal performance across a wide range of scenarios.
 
@@ -515,7 +515,7 @@ Using Vulkan Profiles offers several advantages:
 4. *Clear Communication*
     - Provides a common language for developers and hardware vendors to discuss capabilities
 5. *Reduced Testing Burden*
-    - Fewer device-specific code paths means less testing required
+    - Fewer device-specific code paths mean less testing required
 6. *Standardized Capabilities*
     - Provides a well-defined baseline that hardware vendors can target
 7. *Easier Porting*
@@ -537,5 +537,5 @@ For more information, refer to these resources:
 * link:https://github.com/KhronosGroup/Vulkan-Samples/tree/main/samples/tooling/profiles[Vulkan-Samples profiles examples]
     - Sample code demonstrating profile usage
 * link:https://www.lunarg.com/wp-content/uploads/2024/02/The-Vulkan-Profiles-Tools-LunarG-Christophe-Riccio-02-01-2024.pdf[Vulkan Profiles pdf]
-    - LunarG's Cristophe Ricco exhaustive documentation for
+    - LunarG's Christophe Riccio's exhaustive documentation for
     Vulkan Profiles.

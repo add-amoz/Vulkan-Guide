@@ -10,9 +10,9 @@ ifndef::images[:images: ../images/]
 
 There are various reasons why every part of SPIR-V was not exposed to Vulkan 1.0. Over time the Vulkan Working Group has identified use cases where it makes sense to expose a new SPIR-V feature.
 
-Some of the following extensions were added alongside a SPIR-V extension. For example, the `VK_KHR_8bit_storage` extension was created in parallel with `SPV_KHR_8bit_storage`. The Vulkan extension only purpose is to allow an application to query for SPIR-V support in the implementation. The SPIR-V extension is there to define the changes made to the SPIR-V intermediate representation.
+Some of the following extensions were added alongside a SPIR-V extension. For example, the `VK_KHR_8bit_storage` extension was created in parallel with `SPV_KHR_8bit_storage`. The Vulkan extension's only purpose is to allow an application to query for SPIR-V support in the implementation. The SPIR-V extension is there to define the changes made to the SPIR-V intermediate representation.
 
-For details how to use SPIR-V extension please read the xref:{chapters}spirv_extensions.adoc[dedicated Vulkan Guide chapter].
+For details on how to use SPIR-V extensions please read the xref:{chapters}spirv_extensions.adoc[dedicated Vulkan Guide chapter].
 
 [[VK_KHR_spirv_1_4]]
 == VK_KHR_spirv_1_4
@@ -22,7 +22,7 @@ For details how to use SPIR-V extension please read the xref:{chapters}spirv_ext
 Promoted to core in Vulkan 1.2
 ====
 
-This extension is designed for a Vulkan 1.1 implementations to expose the SPIR-V 1.4 feature set. Vulkan 1.1 only requires SPIR-V 1.3 and some use cases were found where an implementation might not upgrade to Vulkan 1.2, but still want to offer SPIR-V 1.4 features.
+This extension is designed for Vulkan 1.1 implementations to expose the SPIR-V 1.4 feature set. Vulkan 1.1 only requires SPIR-V 1.3 and some use cases were found where an implementation might not upgrade to Vulkan 1.2, but still want to offer SPIR-V 1.4 features.
 
 [[VK_KHR_8bit_storage]]
 [[VK_KHR_16bit_storage]]
@@ -96,7 +96,7 @@ Promoted to core in Vulkan 1.2
 link:http://htmlpreview.github.io/?https://github.com/KhronosGroup/SPIRV-Registry/blob/main/extensions/KHR/SPV_KHR_float_controls.html[SPV_KHR_float_controls]
 ====
 
-This extension allows the ability to set how rounding of floats are handled. The `VkPhysicalDeviceFloatControlsProperties` shows the full list of features that can be queried. This is useful when converting OpenCL kernels to Vulkan.
+This extension allows the ability to set how rounding of floats is handled. The `VkPhysicalDeviceFloatControlsProperties` shows the full list of features that can be queried. This is useful when converting OpenCL kernels to Vulkan.
 
 [[VK_KHR_storage_buffer_storage_class]]
 == VK_KHR_storage_buffer_storage_class
@@ -128,7 +128,7 @@ If you target Vulkan 1.0 (which requires SPIR-V 1.0), using glslang `--target-en
 %var = OpVariable %ptr Uniform
 ----
 
-Since `SPV_KHR_storage_buffer_storage_class` was added to SPIR-V 1.3, if you target Vulkan 1.1 (which requires SPIR-V 1.3) ,using glslang `--target-env vulkan1.1`, it will make use of the new `StorageBuffer` class.
+Since `SPV_KHR_storage_buffer_storage_class` was added to SPIR-V 1.3, if you target Vulkan 1.1 (which requires SPIR-V 1.3), using glslang `--target-env vulkan1.1`, it will make use of the new `StorageBuffer` class.
 
 [source,swift]
 ----
@@ -161,7 +161,7 @@ A pointer of logical pointer type that results from one of the following instruc
 
 When this extension is enabled, invocation-private pointers can be dynamic and non-uniform. Without this extension a variable pointer must be selected from pointers pointing into the same structure or be `OpConstantNull`.
 
-This extension has two levels to it. The first is the `variablePointersStorageBuffer` feature bit which allows implementations to support the use of variable pointers into a SSBO only. The `variablePointers` feature bit allows the use of variable pointers outside the SSBO as well.
+This extension has two levels to it. The first is the `variablePointersStorageBuffer` feature bit which allows implementations to support the use of variable pointers into an SSBO only. The `variablePointers` feature bit allows the use of variable pointers outside the SSBO as well.
 
 [[VK_KHR_vulkan_memory_model]]
 == VK_KHR_vulkan_memory_model
@@ -173,7 +173,7 @@ Promoted to core in Vulkan 1.2
 link:https://www.khronos.org/blog/comparing-the-vulkan-spir-v-memory-model-to-cs/[Comparing the Vulkan SPIR-V memory model to C's]
 ====
 
-The link:https://docs.vulkan.org/spec/latest/appendices/memorymodel.html[Vulkan Memory Model] formally defines how to synchronize memory accesses to the same memory locations performed by multiple shader invocations and this extension exposes a boolean to let implementations to indicate support for it. This is important because with many things targeting Vulkan/SPIR-V it is important that any memory transfer operations an application might attempt to optimize doesn't break across implementations.
+The link:https://docs.vulkan.org/spec/latest/appendices/memorymodel.html[Vulkan Memory Model] formally defines how to synchronize memory accesses to the same memory locations performed by multiple shader invocations and this extension exposes a boolean to let implementations indicate support for it. This is important because with many things targeting Vulkan/SPIR-V it is important that any memory transfer operations an application might attempt to optimize don't break across implementations.
 
 [[VK_EXT_shader_viewport_index_layer]]
 == VK_EXT_shader_viewport_index_layer
@@ -221,7 +221,7 @@ link:https://registry.khronos.org/OpenGL/extensions/ARB/ARB_shader_stencil_expor
 
 This extension allows a shader to generate the stencil reference value per invocation. When stencil testing is enabled, this allows the test to be performed against the value generated in the shader.
 
-In GLSL this is represented by a `out int gl_FragStencilRefARB` built-in.
+In GLSL this is represented by an `out int gl_FragStencilRefARB` built-in.
 
 [[VK_EXT_shader_demote_to_helper_invocation]]
 == VK_EXT_shader_demote_to_helper_invocation
@@ -247,7 +247,7 @@ link:http://htmlpreview.github.io/?https://github.com/KhronosGroup/SPIRV-Registr
 link:https://github.com/KhronosGroup/GLSL/blob/master/extensions/ext/GL_EXT_shader_realtime_clock.txt[GLSL - GL_EXT_shader_realtime_clock]
 ====
 
-This extension allows the shader to read the value of a monotonically incrementing counter provided by the implementation. This can be used as one possible method for debugging by tracking the order of when an invocation executes the instruction. It is worth noting that the addition of the `OpReadClockKHR` alters the shader one might want to debug. This means there is a certain level of accuracy representing the order as if the instructions did not exists.
+This extension allows the shader to read the value of a monotonically incrementing counter provided by the implementation. This can be used as one possible method for debugging by tracking the order of when an invocation executes the instruction. It is worth noting that the addition of the `OpReadClockKHR` alters the shader one might want to debug. This means there is a certain level of accuracy representing the order as if the instructions did not exist.
 
 [[VK_KHR_shader_non_semantic_info]]
 == VK_KHR_shader_non_semantic_info
@@ -285,9 +285,9 @@ link:https://github.com/KhronosGroup/GLSL/blob/master/extensions/ext/GL_EXT_shar
 
 This extension provides a way for the shader to define the layout of `Workgroup` `Storage Class` memory. `Workgroup` variables can be declared in blocks, and then use the same explicit layout decorations (e.g. `Offset`, `ArrayStride`) as other storage classes.
 
-One use case is to do large vector copies (e.g. `uvec4` at at a time) from buffer memory into shared memory, even if the shared memory is really a different type (e.g. `scalar fp16`).
+One use case is to do large vector copies (e.g. `uvec4` at a time) from buffer memory into shared memory, even if the shared memory is really a different type (e.g. `scalar fp16`).
 
-Another use case is a developers could potentially use this to reuse shared memory and reduce the total shared memory consumption using something such as the following:
+Another use case is that developers could potentially use this to reuse shared memory and reduce the total shared memory consumption using something such as the following:
 
 [source]
 ----

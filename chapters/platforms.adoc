@@ -26,7 +26,7 @@ Vulkan is supported on many BSD Unix distributions.
 
 == Fuchsia
 
-Vulkan is supported on the link:https://fuchsia.dev/fuchsia-src/development/graphics/magma/concepts/vulkan[Fuchsia operation system].
+Vulkan is supported on the link:https://fuchsia.dev/fuchsia-src/development/graphics/magma/concepts/vulkan[Fuchsia operating system].
 
 == iOS
 
@@ -46,7 +46,7 @@ The Nintendo Switch runs an NVIDIA Tegra chipset that supports native Vulkan.
 
 == QNX
 
-Vulkan is supported on QNX operation system.
+Vulkan is supported on QNX operating system.
 
 == Windows
 

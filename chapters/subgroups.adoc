@@ -15,7 +15,7 @@ The Vulkan Spec defines subgroups as:
 A set of shader invocations that can synchronize and share data with each other efficiently. In compute shaders, the local workgroup is a superset of the subgroup.
 ====
 
-For many implementations, a subgroup is the groups of invocations that run the same instruction at once. Subgroups allow for a shader writer to work at a finer granularity than a single workgroup.
+For many implementations, a subgroup is the group of invocations that run the same instruction at once. Subgroups allow for a shader writer to work at a finer granularity than a single workgroup.
 
 == Resources
 
@@ -34,9 +34,9 @@ It is important to also realize the size of a subgroup can be dynamic for an imp
 Promoted to core in Vulkan 1.3
 ====
 
-This extension was created due to some implementation having more than one subgroup size and Vulkan originally only exposing a single subgroup size.
+This extension was created due to some implementations having more than one subgroup size and Vulkan originally only exposing a single subgroup size.
 
-For example, if an implementation has both support for subgroups of size `4` and `16` before they would have had to expose only one size, but now can expose both. This allows applications to potentially control the hardware at a finer granularity for implementations that expose multiple subgroup sizes. If an device does not support this extension, it most likely means there is only one supported subgroup size to expose.
+For example, if an implementation has both support for subgroups of size `4` and `16` before they would have had to expose only one size, but now can expose both. This allows applications to potentially control the hardware at a finer granularity for implementations that expose multiple subgroup sizes. If a device does not support this extension, it most likely means there is only one supported subgroup size to expose.
 
 == Checking for support
 

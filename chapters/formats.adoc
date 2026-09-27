@@ -79,7 +79,7 @@ Formats come in many variations, most can be grouped by the link:https://docs.vu
 
 === Color
 
-Format with a `R`, `G`, `B` or `A` component and accessed with the `VK_IMAGE_ASPECT_COLOR_BIT`
+Formats with a `R`, `G`, `B` or `A` component and accessed with the `VK_IMAGE_ASPECT_COLOR_BIT`
 
 === Depth and Stencil
 
@@ -126,4 +126,4 @@ For `VK_FORMAT_R8G8B8A8_UNORM` the `attribAddress` has to be a multiple of the c
 
 === External
 
-Currently only supported with the `VK_ANDROID_external_memory_android_hardware_buffer` extension. This extension allows Android applications to import implementation-defined external formats to be used with a xref:{chapters}extensions/VK_KHR_sampler_ycbcr_conversion.adoc[VkSamplerYcbcrConversion]. There are many restrictions what are allowed with these external formats which are link:https://docs.vulkan.org/spec/latest/chapters/memory.html#memory-external-android-hardware-buffer-external-formats[documented in the spec].
+Currently only supported with the `VK_ANDROID_external_memory_android_hardware_buffer` extension. This extension allows Android applications to import implementation-defined external formats to be used with a xref:{chapters}extensions/VK_KHR_sampler_ycbcr_conversion.adoc[VkSamplerYcbcrConversion]. There are many restrictions on what is allowed with these external formats which are link:https://docs.vulkan.org/spec/latest/chapters/memory.html#memory-external-android-hardware-buffer-external-formats[documented in the spec].

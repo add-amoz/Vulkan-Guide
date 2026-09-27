@@ -7,7 +7,7 @@ ifndef::images[:images: images/]
 [[descriptor-arrays]]
 = Descriptor Arrays
 
-This chapter is to help explain about how you can create an array of descriptors.
+This chapter is to help explain how you can create an array of descriptors.
 
 == Bindings vs Arrays
 
@@ -110,7 +110,7 @@ writes[3].pBufferInfo = buffer_info_3;
 
 When updating multiple bindings at once there is a concept of link:https://docs.vulkan.org/spec/latest/chapters/descriptorsets.html#descriptorsets-updates-consecutive[Consecutive Binding Updates in the Vulkan Spec].
 
-The follow is an example to help illustrate how it works. We will have 5 descriptors spread across for 3 different bindings. The shader code is expressed as:
+The following is an example to help illustrate how it works. We will have 5 descriptors spread across 3 different bindings. The shader code is expressed as:
 
 [source,glsl]
 ----

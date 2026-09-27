@@ -20,7 +20,7 @@ operations (check `VkPhysicalDeviceSubgroupProperties::supportedStages` or
 
 The stronger guarantees cause the uniform control flow rules in the SPIR-V
 specification to also apply to individual subgroups. The most important part of
-those rules is the requirement to reconverge at a merge block if the all
+those rules is the requirement to reconverge at a merge block if all
 invocations were converged upon entry to the header block. This is often
 implicitly relied upon by shader authors, but not actually guaranteed by the
 core Vulkan specification.

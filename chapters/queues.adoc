@@ -21,7 +21,7 @@ Command buffers submitted to different queues are unordered relative to each oth
 
 You can only submit work to a `VkQueue` from one thread at a time, but different threads can submit work to a different `VkQueue` simultaneously.
 
-How a `VkQueue` is mapped to the underlying hardware is implementation-defined. Some implementations will have multiple hardware queues and submitting work to multiple `VkQueue`&#8203;s will proceed independently and concurrently. Some implementations will do scheduling at a kernel driver level before submitting work to the hardware. There is no current way in Vulkan to expose the exact details how each `VkQueue` is mapped.
+How a `VkQueue` is mapped to the underlying hardware is implementation-defined. Some implementations will have multiple hardware queues and submitting work to multiple `VkQueue`&#8203;s will proceed independently and concurrently. Some implementations will do scheduling at a kernel driver level before submitting work to the hardware. There is no current way in Vulkan to expose the exact details of how each `VkQueue` is mapped.
 
 [NOTE]
 ====
@@ -34,7 +34,7 @@ There are various types of operations a `VkQueue` can support. A "`Queue Family`
 
 The following are the queue operations found in link:https://registry.khronos.org/vulkan/specs/latest/man/html/VkQueueFlagBits.html[VkQueueFlagBits]:
 
-  * `VK_QUEUE_GRAPHICS_BIT` used for `vkCmdDraw*` and graphic pipeline commands.
+  * `VK_QUEUE_GRAPHICS_BIT` used for `vkCmdDraw*` and graphics pipeline commands.
   * `VK_QUEUE_COMPUTE_BIT` used for `vkCmdDispatch*` and `vkCmdTraceRays*` and compute pipeline related commands.
   * `VK_QUEUE_TRANSFER_BIT` used for all transfer commands.
   ** link:https://registry.khronos.org/vulkan/specs/latest/man/html/VkPipelineStageFlagBits.html[VK_PIPELINE_STAGE_TRANSFER_BIT] in the Spec describes "`transfer commands`".
@@ -46,7 +46,7 @@ The following are the queue operations found in link:https://registry.khronos.or
 
 === Knowing which Queue Family is needed
 
-Each operation in the Vulkan Spec has a "`Supported Queue Types`" section generated from the link:https://github.com/KhronosGroup/Vulkan-Docs/blob/main/xml/vk.xml[vk.xml] file. The following is 3 different examples of what it looks like in the Spec:
+Each operation in the Vulkan Spec has a "`Supported Queue Types`" section generated from the link:https://github.com/KhronosGroup/Vulkan-Docs/blob/main/xml/vk.xml[vk.xml] file. The following are 3 different examples of what it looks like in the Spec:
 
 image::{images}queues_cmd_draw.png[queues_cmd_dispatch.png]
 
@@ -70,7 +70,7 @@ uint32_t graphicsQueueFamilyIndex;
 
 for (uint32_t i = 0; i < count; i++) {
     if ((properties[i].queueFlags & VK_QUEUE_GRAPHICS_BIT) != 0) {
-        // This Queue Family support graphics
+        // This Queue Family supports graphics
         graphicsQueueFamilyIndex = i;
         break;
     }
@@ -81,11 +81,11 @@ for (uint32_t i = 0; i < count; i++) {
 
 Unlike other handles such as `VkDevice`, `VkBuffer`, `VkDeviceMemory`, there is **no** `vkCreateQueue` or `vkAllocateQueue`. Instead, the driver is in charge of creating and destroying the `VkQueue` handles during `vkCreateDevice`/`vkDestroyDevice` time.
 
-The following examples will use the hypothetical implementation which support 3 `VkQueue`&#8203;s from 2 Queue Families:
+The following examples will use the hypothetical implementation which supports 3 `VkQueue`&#8203;s from 2 Queue Families:
 
 image::{images}queues_hypothetical.png[queues_hypothetical.png]
 
-The following is an example how to create all 3 `VkQueue`&#8203;s with the logical device:
+The following is an example of how to create all 3 `VkQueue`&#8203;s with the logical device:
 
 [source,cpp]
 ----

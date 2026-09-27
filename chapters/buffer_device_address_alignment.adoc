@@ -18,7 +18,7 @@ OpStore %ptr %obj Aligned 16
 
 Shading languages will have a default, but can allow you to align it explicitly (ex `buffer_reference_alignment`).
 
-The goal of this alignment is this is a promise for how aligned this specific pointer is.
+The goal of this alignment is that this is a promise for how aligned this specific pointer is.
 The compiler has no idea what the address will be when the shader is compiled.
 By providing an alignment it can generate valid code to match the requirement.
 The user is responsible to confirm the address they use is aligned to it.
@@ -61,7 +61,7 @@ layout(buffer_reference) buffer MyBDA {
 
 == Setting Alignment Example
 
-To help explain alignment, lets take an example of loading an array of vectors
+To help explain alignment, let's take an example of loading an array of vectors
 
 [source,glsl]
 ----
@@ -130,11 +130,11 @@ layout(set = 0, binding = 0) buffer SSBO_0 {
 };
 ----
 
-Because the `uint64_t` needs be accessed at an 8-byte alignment, `glslang` (and any other compiler) will be smart and pack things as tightly as possible for you.
+Because the `uint64_t` needs to be accessed at an 8-byte alignment, `glslang` (and any other compiler) will be smart and pack things as tightly as possible for you.
 
 The first thing you might notice is `Metadata` needs to have an array stride of 16 instead of 12. This is because otherwise `uint64_t address` will land on a non 8-byte alignment every other instance of the array.
 
-The next thing happening is because `struct Metedata` **largest scalar** is an 8-byte value, it knows to have the offset at `8` instead of `4`. This is why trying to change the struct to
+The next thing happening is because `struct Metadata` **largest scalar** is an 8-byte value, it knows to have the offset at `8` instead of `4`. This is why trying to change the struct to
 
 [source,glsl]
 ----
@@ -161,7 +161,7 @@ Here is how the memory is laid out in memory:
 
 image::{images}buffer_device_address_alignment_1.svg[buffer_device_address_alignment_1.svg]
 
-So the issue here becomes when we try to map our host memory. When you call `vkMapMemory` and get a `void*` you need to cautious that memory needs to be laid out the same as the diagram above. One way to ensure this is use a struct on host as it will match the shader code.
+So the issue here becomes when we try to map our host memory. When you call `vkMapMemory` and get a `void*` you need to be cautious that memory needs to be laid out the same as the diagram above. One way to ensure this is to use a struct on host as it will match the shader code.
 
 [source,c++]
 ----

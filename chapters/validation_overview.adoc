@@ -34,7 +34,7 @@ When an application supplies invalid input, according to the valid usages in the
 
 === Undefined Value
 
-There are few spots that will be __undefined value__. These are situation where it is not invalid to do something, but the value returned from the hardware might be garbage. Imagine the following code
+There are a few spots that will be __undefined value__. These are situations where it is not invalid to do something, but the value returned from the hardware might be garbage. Imagine the following code
 
 [source,cpp]
 ----
@@ -46,7 +46,7 @@ It will never crash, but the value can be anything and relying on the undefined 
 
 == Valid Usage ID (VUID)
 
-A `VUID` is an unique ID given to each valid usage. This allows a way to point to a valid usage in the spec easily.
+A `VUID` is a unique ID given to each valid usage. This allows a way to point to a valid usage in the spec easily.
 
 Using `VUID-vkBindImageMemory-memoryOffset-01046` as an example, it is as simple as adding the VUID to an anchor in the HTML version of the spec (link:https://docs.vulkan.org/spec/latest/chapters/resources.html#VUID-vkBindImageMemory-memoryOffset-01046[vkspec.html#VUID-vkBindImageMemory-memoryOffset-01046]) and it will jump right to the VUID.
 
@@ -75,7 +75,7 @@ The Khronos Validation Layer used to consist of multiple layers but now has been
 
 The Validation Layers are constantly being updated and improved so it is always possible to grab the source and link:https://github.com/KhronosGroup/Vulkan-ValidationLayers/blob/main/BUILD.md[build it yourself]. In case you want a prebuilt version there are various options for all supported platforms:
 
-  * **Android** - Binaries are link:https://github.com/KhronosGroup/Vulkan-ValidationLayers/releases[released on GitHub] with most up to date version. The NDK will also comes with the Validation Layers built and link:https://developer.android.com/ndk/guides/graphics/validation-layer[information on how to use them].
+  * **Android** - Binaries are link:https://github.com/KhronosGroup/Vulkan-ValidationLayers/releases[released on GitHub] with most up to date version. The NDK will also come with the Validation Layers built and link:https://developer.android.com/ndk/guides/graphics/validation-layer[information on how to use them].
   * **Linux** - The link:https://vulkan.lunarg.com/sdk/home[Vulkan SDK] comes with the Validation Layers built and instructions on how to use them on link:https://vulkan.lunarg.com/doc/sdk/latest/linux/khronos_validation_layer.html[Linux].
   * **MacOS** - The link:https://vulkan.lunarg.com/sdk/home[Vulkan SDK] comes with the Validation Layers built and instructions on how to use them on link:https://vulkan.lunarg.com/doc/sdk/latest/mac/khronos_validation_layer.html[MacOS].
   * **Windows** - The link:https://vulkan.lunarg.com/sdk/home[Vulkan SDK] comes with the Validation Layers built and instructions on how to use them on link:https://vulkan.lunarg.com/doc/sdk/latest/windows/khronos_validation_layer.html[Windows].

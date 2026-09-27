@@ -47,7 +47,7 @@ image::{images}spirv_extensions_8bit_capability.png[spirv_extensions_8bit_capabi
 
 [NOTE]
 ====
-while it says `VkPhysicalDeviceVulkan12Features::uniformAndStorageBuffer8BitAccess` in the table, the `VkPhysicalDevice8BitStorageFeatures::uniformAndStorageBuffer8BitAccess` is an alias can be considered the same here.
+While it says `VkPhysicalDeviceVulkan12Features::uniformAndStorageBuffer8BitAccess` in the table, the `VkPhysicalDevice8BitStorageFeatures::uniformAndStorageBuffer8BitAccess` is an alias and can be considered the same here.
 ====
 
 Luckily if you forget to check, the Vulkan Validation Layers has an link:https://github.com/KhronosGroup/Vulkan-ValidationLayers/blob/main/layers/vulkan/generated/spirv_validation_helper.cpp[auto-generated validation] in place. Both the Validation Layers and the Vulkan Spec table are all based on the link:https://github.com/KhronosGroup/Vulkan-Docs/blob/main/xml/vk.xml[./xml/vk.xml] file.
@@ -76,6 +76,6 @@ For this example, either the `VkPhysicalDeviceVulkan12Features::uniformAndStorag
 
 ==== Using high level shading language extensions
 
-For this example, GLSL has a link:https://github.com/KhronosGroup/GLSL/blob/master/extensions/ext/GL_EXT_shader_16bit_storage.txt[GL_EXT_shader_16bit_storage] extension that includes the match `GL_EXT_shader_8bit_storage` extension in it.
+For this example, GLSL has a link:https://github.com/KhronosGroup/GLSL/blob/master/extensions/ext/GL_EXT_shader_16bit_storage.txt[GL_EXT_shader_16bit_storage] extension that includes the matching `GL_EXT_shader_8bit_storage` extension in it.
 
 Tools such as `glslang` and `SPIRV-Tools` will handle to make sure the matching `OpExtension` and `OpCapability` are used.

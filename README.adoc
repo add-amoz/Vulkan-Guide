@@ -199,7 +199,7 @@ These are supplemental references for the various Vulkan Extensions. Please cons
 
   * `VK_KHR_device_group`, `VK_KHR_device_group_creation`
 
-== xref:{chapters}extensions/external.adoc[External Memory and Sychronization]
+== xref:{chapters}extensions/external.adoc[External Memory and Synchronization]
 
   * `VK_KHR_external_fence`, `VK_KHR_external_memory`, `VK_KHR_external_semaphore`
 

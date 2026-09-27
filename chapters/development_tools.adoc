@@ -21,7 +21,7 @@ Layers are optional components that augment the Vulkan system. They can intercep
 
   * xref:{chapters}validation_overview.adoc#khronos-validation-layer[`VK_LAYER_KHRONOS_validation`], the Khronos Validation Layer.
     It is every developer's first layer of defense when debugging their Vulkan application and this is the reason it is at the top of this list. Read the xref:{chapters}validation_overview.adoc#validation-overview[Validation Overview chapter] for more details.
-    The validation layer included multiple features:
+    The validation layer includes multiple features:
   ** link:https://vulkan.lunarg.com/doc/sdk/latest/windows/synchronization_usage.html[Synchronization Validation]: Identify resource access conflicts due to missing or incorrect synchronization operations between actions (Draw, Copy, Dispatch, Blit) reading or writing the same regions of memory.
   ** link:https://vulkan.lunarg.com/doc/sdk/latest/windows/gpu_validation.html[GPU-Assisted Validation]: Instrument shader code to perform run-time checks for error conditions produced during shader execution.
   ** link:https://vulkan.lunarg.com/doc/sdk/latest/windows/debug_printf.html[Shader printf]: Debug shader code by "`printing`" any values of interest to the debug callback or stdout. Environment variables provide a fast path for enabling this feature without code changes.
@@ -29,7 +29,7 @@ Layers are optional components that augment the Vulkan system. They can intercep
 
 === Vulkan SDK layers
 
-Besides the Khronos Layers, the Vulkan SDK included additional useful platform independent layers.
+Besides the Khronos Layers, the Vulkan SDK includes additional useful platform independent layers.
 
   * link:https://vulkan.lunarg.com/doc/sdk/latest/windows/api_dump_layer.html[`VK_LAYER_LUNARG_api_dump`], a layer to log Vulkan API calls.
     The API dump layer prints API calls, parameters, and values to the identified output stream.

@@ -178,7 +178,7 @@ This map is for helping to quickly find which dynamic state goes with other comp
                                                 | VK_EXT_discard_rectangles
 | VK_DYNAMIC_STATE_SAMPLE_LOCATIONS_EXT
             | vkCmdSetSampleLocationsEXT
-                        | Fragement Shader
+                        | Fragment Shader
                           Fragment Output
                                     | VkPipelineSampleLocationsStateCreateInfoEXT::sampleLocationsInfo
                                                 | VK_EXT_sample_locations
@@ -258,28 +258,28 @@ This map is for helping to quickly find which dynamic state goes with other comp
                                                   VK_EXT_shader_object
 | VK_DYNAMIC_STATE_RASTERIZATION_SAMPLES_EXT
             | vkCmdSetRasterizationSamplesEXT
-                        | Fragement Shader
+                        | Fragment Shader
                           Fragment Output
                                     | VkPipelineMultisampleStateCreateInfo::rasterizationSamples
                                                 | VK_EXT_extended_dynamic_state3
                                                   VK_EXT_shader_object
 | VK_DYNAMIC_STATE_SAMPLE_MASK_EXT
             | vkCmdSetSampleMaskEXT
-                        | Fragement Shader
+                        | Fragment Shader
                           Fragment Output
                                     | VkPipelineMultisampleStateCreateInfo::pSampleMask
                                                 | VK_EXT_extended_dynamic_state3
                                                   VK_EXT_shader_object
 | VK_DYNAMIC_STATE_ALPHA_TO_COVERAGE_ENABLE_EXT
             | vkCmdSetAlphaToCoverageEnableEXT
-                        | Fragement Shader
+                        | Fragment Shader
                           Fragment Output
                                     | VkPipelineMultisampleStateCreateInfo::alphaToCoverageEnable
                                                 | VK_EXT_extended_dynamic_state3
                                                   VK_EXT_shader_object
 | VK_DYNAMIC_STATE_ALPHA_TO_ONE_ENABLE_EXT
             | vkCmdSetAlphaToOneEnableEXT
-                        | Fragement Shader
+                        | Fragment Shader
                           Fragment Output
                                     | VkPipelineMultisampleStateCreateInfo::alphaToOneEnable
                                                 | VK_EXT_extended_dynamic_state3
@@ -340,7 +340,7 @@ This map is for helping to quickly find which dynamic state goes with other comp
                                                   VK_EXT_shader_object
 | VK_DYNAMIC_STATE_SAMPLE_LOCATIONS_ENABLE_EXT
             | vkCmdSetSampleLocationsEnableEXT
-                        | Fragement Shader
+                        | Fragment Shader
                           Fragment Output
                                     | VkPipelineSampleLocationsStateCreateInfoEXT::sampleLocationsEnable
                                                 | VK_EXT_extended_dynamic_state3
@@ -392,35 +392,35 @@ This map is for helping to quickly find which dynamic state goes with other comp
                                                   VK_EXT_shader_object
 | VK_DYNAMIC_STATE_COVERAGE_TO_COLOR_ENABLE_NV
             | vkCmdSetCoverageToColorEnableNV
-                        | Fragement Shader
+                        | Fragment Shader
                           Fragment Output
                                     | VkPipelineCoverageToColorStateCreateInfoNV::coverageToColorEnable
                                                 | VK_EXT_extended_dynamic_state3
                                                   VK_EXT_shader_object
 | VK_DYNAMIC_STATE_COVERAGE_TO_COLOR_LOCATION_NV
             | vkCmdSetCoverageToColorLocationNV
-                        | Fragement Shader
+                        | Fragment Shader
                           Fragment Output
                                     | VkPipelineCoverageToColorStateCreateInfoNV::coverageToColorLocation
                                                 | VK_EXT_extended_dynamic_state3
                                                   VK_EXT_shader_object
 | VK_DYNAMIC_STATE_COVERAGE_MODULATION_MODE_NV
             | vkCmdSetCoverageModulationModeNV
-                        | Fragement Shader
+                        | Fragment Shader
                           Fragment Output
                                     | VkPipelineCoverageModulationStateCreateInfoNV::coverageModulationMode
                                                 | VK_EXT_extended_dynamic_state3
                                                   VK_EXT_shader_object
 | VK_DYNAMIC_STATE_COVERAGE_MODULATION_TABLE_ENABLE_NV
             | vkCmdSetCoverageModulationTableEnableNV
-                        | Fragement Shader
+                        | Fragment Shader
                           Fragment Output
                                     | VkPipelineCoverageModulationStateCreateInfoNV::coverageModulationTableEnable
                                                 | VK_EXT_extended_dynamic_state3
                                                   VK_EXT_shader_object
 | VK_DYNAMIC_STATE_COVERAGE_MODULATION_TABLE_NV
             | vkCmdSetCoverageModulationTableNV
-                        | Fragement Shader
+                        | Fragment Shader
                           Fragment Output
                                     | VkPipelineCoverageModulationStateCreateInfoNV::coverageModulationTableCount
                                       VkPipelineCoverageModulationStateCreateInfoNV::pCoverageModulationTable
@@ -434,13 +434,13 @@ This map is for helping to quickly find which dynamic state goes with other comp
                                                   VK_EXT_shader_object
 | VK_DYNAMIC_STATE_REPRESENTATIVE_FRAGMENT_TEST_ENABLE_NV
             | vkCmdSetRepresentativeFragmentTestEnableNV
-                        | Fragement Shader
+                        | Fragment Shader
                                     | VkPipelineRepresentativeFragmentTestStateCreateInfoNV::representativeFragmentTestEnable
                                                 | VK_EXT_extended_dynamic_state3
                                                   VK_EXT_shader_object
 | VK_DYNAMIC_STATE_COVERAGE_REDUCTION_MODE_NV
             | vkCmdSetCoverageReductionModeNV
-                        | Fragement Shader
+                        | Fragment Shader
                           Fragment Output
                                     | VkPipelineCoverageReductionStateCreateInfoNV::coverageReductionMode
                                                 | VK_EXT_extended_dynamic_state3
@@ -448,7 +448,7 @@ This map is for helping to quickly find which dynamic state goes with other comp
 | VK_DYNAMIC_STATE_ATTACHMENT_FEEDBACK_LOOP_ENABLE_EXT
             | vkCmdSetAttachmentFeedbackLoopEnableEXT
                         | Pre-Rasterization
-                          Fragement Shader
+                          Fragment Shader
                           Fragment Output
                                     |
                                                 | VK_EXT_attachment_feedback_loop_dynamic_state

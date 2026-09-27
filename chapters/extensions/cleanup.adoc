@@ -10,7 +10,7 @@ ifndef::images[:images: ../images/]
 
 [NOTE]
 ====
-These are extensions that are unofficially called "`cleanup extension`". The Vulkan Guide defines them as cleanup extensions due to their nature of only adding a small bit of functionality or being very simple, self-explanatory extensions in terms of their purpose.
+These are extensions that are unofficially called "`cleanup extensions`". The Vulkan Guide defines them as cleanup extensions due to their nature of only adding a small bit of functionality or being very simple, self-explanatory extensions in terms of their purpose.
 ====
 
 [[VK_KHR_driver_properties]]
@@ -31,7 +31,7 @@ This extension adds more information to query about each implementation. The lin
 Promoted to core in Vulkan 1.2
 ====
 
-This extension allows an application to call `vkResetQueryPool` from the host instead of needing to setup logic to submit `vkCmdResetQueryPool` since this is mainly just a quick write to memory for most implementations.
+This extension allows an application to call `vkResetQueryPool` from the host instead of needing to set up logic to submit `vkCmdResetQueryPool` since this is mainly just a quick write to memory for most implementations.
 
 [[VK_KHR_separate_depth_stencil_layouts]]
 == VK_KHR_separate_depth_stencil_layouts
@@ -41,7 +41,7 @@ This extension allows an application to call `vkResetQueryPool` from the host in
 Promoted to core in Vulkan 1.2
 ====
 
-This extension allows an application when using a depth/stencil format to do an image translation on each the depth and stencil separately. Starting in Vulkan 1.2 this functionality is required for all implementations.
+This extension allows an application when using a depth/stencil format to do an image transition on each of the depth and stencil separately. Starting in Vulkan 1.2 this functionality is required for all implementations.
 
 [[VK_KHR_depth_stencil_resolve]]
 == VK_KHR_depth_stencil_resolve
@@ -115,7 +115,7 @@ These extensions add new `VkFormat` that were not originally in the spec
 Promoted to core in Vulkan 1.3
 ====
 
-This extension adds a new `VkFormatFeatureFlagBits2KHR` 64bits format feature flag type to extend the existing `VkFormatFeatureFlagBits` which is limited to 31 flags.
+This extension adds a new `VkFormatFeatureFlagBits2KHR` 64-bit format feature flag type to extend the existing `VkFormatFeatureFlagBits` which is limited to 31 flags.
 
 [[VK_EXT_rgba10x6_formats]]
 == VK_EXT_rgba10x6_formats
@@ -212,9 +212,9 @@ vkBindImageMemory2(myDevice, 2, infos);
 
 === It is fine to not use these
 
-Unless an application need to make use of one of the extensions that rely on the above extensions, it is normally ok to use the original function/structs still.
+Unless an application needs to make use of one of the extensions that rely on the above extensions, it is normally ok to use the original function/structs still.
 
-One possible way to handle this is as followed:
+One possible way to handle this is as follows:
 
 [source,cpp]
 ----

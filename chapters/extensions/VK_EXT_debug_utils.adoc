@@ -101,7 +101,7 @@ nameInfo.pObjectName = "My Vertex Buffer";
 vkSetDebugUtilsObjectNameEXT(device, &nameInfo);
 ----
 
-It is that simple! When you create your Vulkan handles, to just add the `vkSetDebugUtilsObjectNameEXT` call to it right away.
+It is that simple! When you create your Vulkan handles, just add the `vkSetDebugUtilsObjectNameEXT` call to it right away.
 
 == Debug Markers and Regions
 
@@ -142,7 +142,7 @@ vkCmdEndDebugUtilsLabelEXT(commandBuffer);
 
 ==== Debug Region Stack
 
-The calls to `vkCmdBeginDebugUtilsLabelEXT`/`vkCmdEndDebugUtilsLabelEXT` are stack based, tools will append the various regions in when reporting a messsage.
+The calls to `vkCmdBeginDebugUtilsLabelEXT`/`vkCmdEndDebugUtilsLabelEXT` are stack based, tools will append the various regions in when reporting a message.
 
 [source,cpp]
 ----
@@ -176,7 +176,7 @@ for (int i = 0; i < 4; ++i) {
 }
 ----
 
-you will get a 4 small regions which can quickly turn into a lot of micro folding in an UI. Instead if you go
+you will get 4 small regions which can quickly turn into a lot of micro folding in a UI. Instead if you go
 
 [source,cpp]
 ----
@@ -277,7 +277,7 @@ Establish consistent naming conventions for your debug labels to make them more 
 
 Many external debugging tools support `VK_EXT_debug_utils` annotations:
 
-* **Validation Layesr**: Displays names and regions in error messages
+* **Validation Layers**: Displays names and regions in error messages
 * **RenderDoc**: Displays debug markers and regions in its event timeline
 * **NVIDIA Nsight**: Shows debug labels in its frame debugger
 * **AMD Radeon GPU Profiler**: Uses debug regions to organize GPU workloads

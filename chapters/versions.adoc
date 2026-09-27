@@ -251,9 +251,9 @@ link:https://github.com/KhronosGroup/Vulkan-Samples/tree/main/samples/extensions
 * Viewport with count
 * Scissor with count
 * Depth test enable and write enable
-* Depth compares op and bounds
+* Depth compare op and bounds
 * Stencil test enables and ops
-* Stencil writes mask and reference
+* Stencil write mask and reference
 * Blend constants
 
 === Other Notable Features

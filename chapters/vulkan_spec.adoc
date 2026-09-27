@@ -23,7 +23,7 @@ When building the Vulkan Spec, you pass in what version of Vulkan to build for a
 
 == Vulkan Spec Version
 
-Vulkan 1.0 to 1.3, there was a dedicated version of the spec. To reduce build permutation, starting with Vulkan 1.4 there is now a `latest` version that will always be updated to the latest version of Vulkan.
+For Vulkan 1.0 to 1.3, there was a dedicated version of the spec. To reduce build permutation, starting with Vulkan 1.4 there is now a `latest` version that will always be updated to the latest version of Vulkan.
 
 The link:https://vulkan.lunarg.com/doc/sdk/1.4.304.0/windows/1.4-extensions/vkspec.html[Vulkan SDK] will always contain the version of the spec that it was created with.
 
@@ -33,7 +33,7 @@ The Vulkan Spec can be built into different formats.
 
 === Antora
 
-To both combine various resources and improve navigation, there is now an link:https://docs.vulkan.org/spec/latest/index.html[Antora built version of the spec] that is recommanded to use.
+To both combine various resources and improve navigation, there is now an link:https://docs.vulkan.org/spec/latest/index.html[Antora built version of the spec] that is recommended to use.
 
 === HTML
 
@@ -53,6 +53,6 @@ The Vulkan SDK also comes with a PDF version (https://vulkan.lunarg.com/doc/sdk/
 
 === Man pages
 
-The Khronos Group currently only host the Vulkan Man Pages for the latest version of the spec, with all extensions, on the link:https://registry.khronos.org/vulkan/specs/latest/man/html/[online registry].
+The Khronos Group currently only hosts the Vulkan Man Pages for the latest version of the spec, with all extensions, on the link:https://registry.khronos.org/vulkan/specs/latest/man/html/[online registry].
 
 The Vulkan Man Pages can also be found in the VulkanSDK for each SDK version. See the link:https://vulkan.lunarg.com/doc/sdk/latest/windows/apispec.html[Man Pages] for the latest Vulkan SDK.

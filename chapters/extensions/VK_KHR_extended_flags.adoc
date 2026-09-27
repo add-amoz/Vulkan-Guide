@@ -7,7 +7,7 @@ ifndef::images[:images: ../../images/]
 [[VK_KHR_extended_flags]]
 = VK_KHR_extended_flags
 
-The `VK_KHR_extended_flags` extension is the practical consequence of an ever-growing API running into a reality there are only finite bitmasks in an integer, but new extensions require new flags.
+The `VK_KHR_extended_flags` extension is the practical consequence of an ever-growing API running into the reality that there are only finite bitmasks in an integer, but new extensions require new flags.
 
 This is not a flashy extension, but it provides the vital underlying mechanism that allows other extensions to introduce new flags.
 

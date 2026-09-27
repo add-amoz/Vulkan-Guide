@@ -28,7 +28,7 @@ By using the right render pass configurations and memory flags, you give the imp
 
 While every vendor has a slightly different design, they generally share common characteristics.
 First, it is important to realize that the **tile size** is determined by the hardware and is not something you can query or control in core Vulkan.
-Depending on the device and the complexity of your attachments, tiles might be anything in size of pixels.
+Depending on the device and the complexity of your attachments, tiles might be any size in pixels.
 The GPU chooses a size that fits its internal memory budget.
 Some vendor extensions (like `VK_QCOM_tile_shading`) might expose these details, but for a cross-platform app, you should assume the tile size is opaque.
 

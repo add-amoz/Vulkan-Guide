@@ -1255,7 +1255,7 @@ Mobile platforms have their own audio APIs optimized for mobile devices. These A
 
 Android provides AAudio and OpenSL ES (Deprecated) for high-performance audio
  in
-gapplications like games.  With the goal of recommending one library to work
+applications like games.  With the goal of recommending one library to work
 across 99% of devices, we recommend
 the
 Oboe library for

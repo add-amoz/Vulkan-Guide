@@ -16,7 +16,7 @@ Every call to `vkCmdDraw` consumes a set of parameters describing the draw call.
 
 [NOTE]
 ====
-The `vkCmdDrawIndirectCount` and `vkCmdDrawIndexedIndirectCount` function can be used if the extension is supported or if the `VkPhysicalDeviceVulkan12Features::drawIndirectCount` feature bit is `true`.
+The `vkCmdDrawIndirectCount` and `vkCmdDrawIndexedIndirectCount` functions can be used if the extension is supported or if the `VkPhysicalDeviceVulkan12Features::drawIndirectCount` feature bit is `true`.
 ====
 
 The following diagram is to visualize the difference between `vkCmdDraw`, `vkCmdDrawIndirect`, and `vkCmdDrawIndirectCount`.

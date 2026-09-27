@@ -7,7 +7,7 @@ ifndef::images[:images: images/]
 [[vulkan-cts]]
 = Vulkan CTS
 
-The Vulkan Conformance Tests Suite (CTS) is a set of tests used to verify the conformance of an implementation. A conformant implementation shows that it has successfully passed CTS and it is a valid implementation of Vulkan. A link:https://www.khronos.org/conformance/adopters/conformant-products/vulkan[list of conformant products] is publicly available.
+The Vulkan Conformance Test Suite (CTS) is a set of tests used to verify the conformance of an implementation. A conformant implementation shows that it has successfully passed CTS and it is a valid implementation of Vulkan. A link:https://www.khronos.org/conformance/adopters/conformant-products/vulkan[list of conformant products] is publicly available.
 
 Any company with a conformant implementation may freely use the publicly released Vulkan specification to create a product. All implementations of the Vulkan API must be tested for conformance in the link:https://www.khronos.org/adopters[Khronos Vulkan Adopter Program] before the Vulkan name or logo may be used in association with an implementation of the API.
 

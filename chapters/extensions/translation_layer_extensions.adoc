@@ -39,7 +39,7 @@ More info in the xref:{chapters}depth.adoc#user-defined-clipping-and-culling[dep
 [[VK_EXT_provoking_vertex]]
 == VK_EXT_provoking_vertex
 
-Vulkan's defaults convention for provoking vertex is "`first vertex`" while OpenGL's defaults convention is "`last vertex`".
+Vulkan's default convention for provoking vertex is "`first vertex`" while OpenGL's default convention is "`last vertex`".
 
 [[VK_EXT_transform_feedback]]
 == VK_EXT_transform_feedback

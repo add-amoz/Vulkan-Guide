@@ -74,7 +74,7 @@ The workflow for `VK_KHR_display` involves a direct negotiation with the display
 Using hardware planes is a key optimization in automotive clusters, where a static background or video feed can be placed on a lower plane while the Gauges are rendered on a higher plane, potentially with different update rates and transparency.
 [NOTE]
 ====
-For those who want to develop locally, using a new TTY terminal (`Ctrl + Alt + F3`) on most linux distributions will allow you to use VK_KHR_display. You can also test it out with vkcube by calling `vkcube --wsi display`
+For those who want to develop locally, using a new TTY terminal (`Ctrl + Alt + F3`) on most Linux distributions will allow you to use VK_KHR_display. You can also test it out with vkcube by calling `vkcube --wsi display`
 ====
 == Platform-Specific Deep Dives
 
@@ -121,7 +121,7 @@ Automotive systems (Instrument clusters and Infotainment) require extreme reliab
 In mission-critical embedded systems, the focus shifts from "how fast can this go" to "can this go this fast forever?"
 
 * **Thermal Throttling**: Embedded devices often lack active cooling. If the GPU exceeds thermal limits, the hardware will drop its clock speed. A robust application should monitor the device temperature (if possible through platform APIs) and gracefully reduce the frame rate or visual complexity to avoid a sudden, drastic throttle.
-* **Robustness Extensions**: Use `VK_KHR_robustness2`. This ensures that if a shader performs out-of-bounds access, (e.g., due to a logic error or a bit-flip in radiation-hardened environments), the access is handled deterministically rather than causing a GPU hang or "TDR" (Timeout Detection and Recovery). Be aware that enabling robustness introduces runtime overhead, as the driver must insert bounds-checking logic into shader code. For this reason, robustness is generally recommended only for testing, debugging, and mission-critical software rather than for general-purpose applications where peak performance is required.
+* **Robustness Extensions**: Use `VK_KHR_robustness2`. This ensures that if a shader performs out-of-bounds access (e.g., due to a logic error or a bit-flip in radiation-hardened environments), the access is handled deterministically rather than causing a GPU hang or "TDR" (Timeout Detection and Recovery). Be aware that enabling robustness introduces runtime overhead, as the driver must insert bounds-checking logic into shader code. For this reason, robustness is generally recommended only for testing, debugging, and mission-critical software rather than for general-purpose applications where peak performance is required.
 * **Pipeline Predeterminism**: In many embedded scenarios, the application should not use any dynamic state that isn't necessary. The more state that is baked into the pipeline at creation time, the more the driver can optimize the generated machine code.
 
 == External Resources
